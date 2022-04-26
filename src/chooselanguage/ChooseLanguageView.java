@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.languageapp.linguify.ChooseLanguage;
+package chooselanguage;
 
 /**
  *
@@ -36,7 +36,7 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/images/Linguify_Logo.png"))); // NOI18N
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/images/Flag_of_Germany.png"))); // NOI18N
-        jButton1.setText("German");
+        jButton1.setText("null");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -44,7 +44,7 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/images/Flag_of_Spain.png"))); // NOI18N
-        jButton2.setText("Spanish");
+        jButton2.setText("null");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
