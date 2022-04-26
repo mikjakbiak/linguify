@@ -75,7 +75,7 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/Linguify_Logo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/Linguify_Logo (2).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

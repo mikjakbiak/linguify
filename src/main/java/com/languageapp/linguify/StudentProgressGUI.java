@@ -41,7 +41,7 @@ public class StudentProgressGUI extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(330, 573));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/Linguify_Logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/languageapp/linguify/Linguify_Logo (2).png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 133, 133));
 
