@@ -12,6 +12,6 @@ package com.languageapp.linguify;
 public class Linguify {
 
     public static void main(String[] args) {
-        System.out.println("DIO CANE!");
+        
     }
 }
