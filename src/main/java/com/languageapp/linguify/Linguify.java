@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
-
 package com.languageapp.linguify;
+
+import com.languageapp.linguify.ChooseLanguage.ChooseLanguageView;
+import javax.swing.JFrame;
 
 /**
  *
@@ -12,6 +10,12 @@ package com.languageapp.linguify;
 public class Linguify {
 
     public static void main(String[] args) {
-        System.out.println("DIO CANE!");
+        final JFrame frame = new ChooseLanguageView();
+//        ChooseLanguageView chooseLanguageView = new ChooseLanguageView();
+//
+//        frame.setContentPane(chooseLanguageView);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(330, 573);
+        frame.setVisible(true);
     }
 }
