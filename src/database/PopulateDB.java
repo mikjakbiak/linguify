@@ -9,13 +9,13 @@ public class PopulateDB
 {
     public static void main(String[] args) 
     {
-        //insertContext();
-        //insertConversation(); //ERROR
-        //insertLanguage();
-        //insertLevel();
-        //insertLevelContext();
-        //insertPerson();
-        //insertSubTopic(); //ERROR
+        insertContext();
+        insertConversation(); //ERROR
+        insertLanguage();
+        insertLevel();
+        insertLevelContext();
+        insertPerson();
+        insertSubTopic(); //ERROR
         insertTrickyWord();
     }    
     
@@ -25,7 +25,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\context.csv");
+            FileInputStream fstream = new FileInputStream("src/database/context.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -71,7 +71,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\conversation.csv");
+            FileInputStream fstream = new FileInputStream("src/database/conversation.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -115,7 +115,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\language.csv");
+            FileInputStream fstream = new FileInputStream("src/database/language.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -158,7 +158,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\level.csv");
+            FileInputStream fstream = new FileInputStream("src/database/level.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -202,7 +202,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\levelContext.csv");
+            FileInputStream fstream = new FileInputStream("src/database/levelContext.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -246,7 +246,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\person.csv");
+            FileInputStream fstream = new FileInputStream("src/database/person.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -289,7 +289,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\subContext.csv");
+            FileInputStream fstream = new FileInputStream("src/database/subContext.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -335,7 +335,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\trickyWord.csv");
+            FileInputStream fstream = new FileInputStream("src/database/trickyWord.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -374,5 +374,50 @@ public class PopulateDB
             System.out.println(e.getMessage());
         }           
     }   
- 
+
+//        private static void insertUser()
+//    {
+//        Connection con = ConnectDB.getConnection();
+//        Statement stmt = null;
+//        try 
+//        {
+//            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\userAcc.csv");
+//            DataInputStream in = new DataInputStream(fstream);
+//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+//            String strLine;
+//            ArrayList list = new ArrayList();
+//            ArrayList IdChecker = new ArrayList();
+//            int count = 0;
+//            while ((strLine = br.readLine()) != null) {
+//                list.add(strLine);
+//                count++;
+//            }
+//            Iterator itr;
+//            for (itr = list.iterator(); itr.hasNext();) {
+//                String str = itr.next().toString();
+//                String[] splitSt = str.split(",");
+//                if (!IdChecker.contains(splitSt[0])) 
+//                {
+//                    IdChecker.add(splitSt[0]);
+//                    int translationId = Integer.parseInt(splitSt[0]);
+//                    String translatedWord = splitSt[1];
+//                    String languageTranslated = splitSt[2];
+//                    int convID = Integer.parseInt(splitSt[3]);
+//                    String levelContextId = splitSt[4];
+//                    
+//                    String sqlString = "INSERT INTO Translation (translationId, translatedWord, languageTranslated, convID, languageName) VALUES \n"
+//                            + "(" + translationId + ",'" + translatedWord + "','" + languageTranslated + "'," + convID + ",'" + levelContextId + "')";
+//                    con.setAutoCommit(false);
+//                    stmt = con.createStatement();
+//                    stmt.executeUpdate(sqlString);
+//                    stmt.close();
+//                    con.commit();
+//                } else {
+//                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+//                }
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }           
+//    }   
 }

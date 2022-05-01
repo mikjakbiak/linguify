@@ -57,10 +57,10 @@ public class CreateTables
         String userTbl;
         userTbl = "CREATE TABLE IF NOT EXISTS User\n"
                 + "(\n"
-                + "	userEmail  	    INTEGER,\n"
+                + "	userEmail  	    VARCHAR(100),\n"
                 + "    \n"
-                + "	userFName	    VARCHAR(20) not null,\n"
-                + "	userLName	    VARCHAR(20) not null,\n"
+                + "	userFName	    VARCHAR(25) not null,\n"
+                + "	userLName	    VARCHAR(25) not null,\n"
                 + "    userPw          VARCHAR(25) not null,\n"
                 + "    userType        char(1)     not null,\n"
                 + "    selectedLang    varchar(25),\n"
