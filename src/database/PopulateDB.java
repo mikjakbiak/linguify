@@ -10,12 +10,12 @@ public class PopulateDB
     public static void main(String[] args) 
     {
         insertContext();
-        insertConversation(); //ERROR
+        insertConversation();
         insertLanguage();
         insertLevel();
         insertLevelContext();
         insertPerson();
-        insertSubTopic(); //ERROR
+        insertSubTopic();
         insertTrickyWord();
     }    
     
@@ -42,7 +42,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -85,7 +88,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -129,7 +135,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -172,7 +181,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -216,7 +228,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -260,7 +275,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -303,7 +321,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -313,7 +334,7 @@ public class PopulateDB
                     String keyVocab = splitSt[3];
                     int levelContextId = Integer.parseInt(splitSt[4]);
                     
-                    String sqlString = "INSERT INTO SubContext (convID, convDesc, personID, subContID) VALUES \n"
+                    String sqlString = "INSERT INTO SubContext (subContID, subContDesc, grammarStructure, keyVocab, levelContextId) VALUES \n"
                             + "(" + subContID + ",'" + subContDesc + "','" + grammarStructure + "','" + keyVocab + "'," + levelContextId + ")";
                     con.setAutoCommit(false);
                     stmt = con.createStatement();
@@ -349,7 +370,10 @@ public class PopulateDB
             Iterator itr;
             for (itr = list.iterator(); itr.hasNext();) {
                 String str = itr.next().toString();
-                String[] splitSt = str.split(",");
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
                 if (!IdChecker.contains(splitSt[0])) 
                 {
                     IdChecker.add(splitSt[0]);
@@ -395,7 +419,10 @@ public class PopulateDB
 //            Iterator itr;
 //            for (itr = list.iterator(); itr.hasNext();) {
 //                String str = itr.next().toString();
-//                String[] splitSt = str.split(",");
+//                String[] splitSt = str.split("(?<!\\\\),");
+//                for (int i = 0; i < splitSt.length; i++) {
+//                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+//                }
 //                if (!IdChecker.contains(splitSt[0])) 
 //                {
 //                    IdChecker.add(splitSt[0]);
