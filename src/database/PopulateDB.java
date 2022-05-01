@@ -10,8 +10,13 @@ public class PopulateDB
     public static void main(String[] args) 
     {
         //insertContext();
-        insertConversation();
+        //insertConversation(); //ERROR
         //insertLanguage();
+        //insertLevel();
+        //insertLevelContext();
+        //insertPerson();
+        //insertSubTopic(); //ERROR
+        insertTrickyWord();
     }    
     
     private static void insertContext()
@@ -104,7 +109,7 @@ public class PopulateDB
         }           
     }
     
-     private static void insertLanguage()
+    private static void insertLanguage()
     {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;
@@ -146,4 +151,228 @@ public class PopulateDB
             System.out.println(e.getMessage());
         }           
     }
+    
+    private static void insertLevel()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        try 
+        {
+            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\level.csv");
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            ArrayList list = new ArrayList();
+            ArrayList IdChecker = new ArrayList();
+            int count = 0;
+            while ((strLine = br.readLine()) != null) {
+                list.add(strLine);
+                count++;
+            }
+            Iterator itr;
+            for (itr = list.iterator(); itr.hasNext();) {
+                String str = itr.next().toString();
+                String[] splitSt = str.split(",");
+                if (!IdChecker.contains(splitSt[0])) 
+                {
+                    IdChecker.add(splitSt[0]);
+                    int levelID = Integer.parseInt(splitSt[0]);
+                    String levelDescription = splitSt[1];
+
+                    String sqlString = "INSERT INTO Level (levelID, levelName) VALUES \n"
+                            + "(" + levelID + ",'" + levelDescription + "')";
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+                } else {
+                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }           
+    }    
+    
+    
+    private static void insertLevelContext()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        try 
+        {
+            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\levelContext.csv");
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            ArrayList list = new ArrayList();
+            ArrayList IdChecker = new ArrayList();
+            int count = 0;
+            while ((strLine = br.readLine()) != null) {
+                list.add(strLine);
+                count++;
+            }
+            Iterator itr;
+            for (itr = list.iterator(); itr.hasNext();) {
+                String str = itr.next().toString();
+                String[] splitSt = str.split(",");
+                if (!IdChecker.contains(splitSt[0])) 
+                {
+                    IdChecker.add(splitSt[0]);
+                    int levelContextId = Integer.parseInt(splitSt[0]);
+                    int contextID = Integer.parseInt(splitSt[1]);
+                    int levelID = Integer.parseInt(splitSt[2]);
+           
+                    String sqlString = "INSERT INTO LevelContext (levelContextId, contextID, levelID) VALUES \n"
+                            + "(" + levelContextId + "," + contextID + "," + levelID + ")";
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+                } else {
+                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }         
+    }
+    
+    private static void insertPerson()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        try 
+        {
+            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\person.csv");
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            ArrayList list = new ArrayList();
+            ArrayList IdChecker = new ArrayList();
+            int count = 0;
+            while ((strLine = br.readLine()) != null) {
+                list.add(strLine);
+                count++;
+            }
+            Iterator itr;
+            for (itr = list.iterator(); itr.hasNext();) {
+                String str = itr.next().toString();
+                String[] splitSt = str.split(",");
+                if (!IdChecker.contains(splitSt[0])) 
+                {
+                    IdChecker.add(splitSt[0]);
+                    int personID = Integer.parseInt(splitSt[0]);
+                    String personDesc = splitSt[1];
+
+                    String sqlString = "INSERT INTO Person (personID, personDesc) VALUES \n"
+                            + "(" + personID + ",'" + personDesc + "')";
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+                } else {
+                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }           
+    }    
+    
+    private static void insertSubTopic()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        try 
+        {
+            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\subContext.csv");
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            ArrayList list = new ArrayList();
+            ArrayList IdChecker = new ArrayList();
+            int count = 0;
+            while ((strLine = br.readLine()) != null) {
+                list.add(strLine);
+                count++;
+            }
+            Iterator itr;
+            for (itr = list.iterator(); itr.hasNext();) {
+                String str = itr.next().toString();
+                String[] splitSt = str.split(",");
+                if (!IdChecker.contains(splitSt[0])) 
+                {
+                    IdChecker.add(splitSt[0]);
+                    int subContID = Integer.parseInt(splitSt[0]);
+                    String subContDesc = splitSt[1];
+                    String grammarStructure = splitSt[2];
+                    String keyVocab = splitSt[3];
+                    int levelContextId = Integer.parseInt(splitSt[4]);
+                    
+                    String sqlString = "INSERT INTO SubContext (convID, convDesc, personID, subContID) VALUES \n"
+                            + "(" + subContID + ",'" + subContDesc + "','" + grammarStructure + "','" + keyVocab + "'," + levelContextId + ")";
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+                } else {
+                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }           
+    }
+    
+    private static void insertTrickyWord()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        try 
+        {
+            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\trickyWord.csv");
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            ArrayList list = new ArrayList();
+            ArrayList IdChecker = new ArrayList();
+            int count = 0;
+            while ((strLine = br.readLine()) != null) {
+                list.add(strLine);
+                count++;
+            }
+            Iterator itr;
+            for (itr = list.iterator(); itr.hasNext();) {
+                String str = itr.next().toString();
+                String[] splitSt = str.split(",");
+                if (!IdChecker.contains(splitSt[0])) 
+                {
+                    IdChecker.add(splitSt[0]);
+                    int translationId = Integer.parseInt(splitSt[0]);
+                    String translatedWord = splitSt[1];
+                    String languageTranslated = splitSt[2];
+                    int convID = Integer.parseInt(splitSt[3]);
+                    String levelContextId = splitSt[4];
+                    
+                    String sqlString = "INSERT INTO Translation (translationId, translatedWord, languageTranslated, convID, languageName) VALUES \n"
+                            + "(" + translationId + ",'" + translatedWord + "','" + languageTranslated + "'," + convID + ",'" + levelContextId + "')";
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+                } else {
+                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }           
+    }   
+ 
 }
