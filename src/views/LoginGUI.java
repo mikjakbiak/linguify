@@ -23,23 +23,24 @@ public class LoginGUI extends javax.swing.JFrame {
     
     private void userLog()
     {
-        Connection con = ConnectDB.getConnection();
-        Statement stmt = null;
-        java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
-                    String query = "INSERT INTO UserLogHistory(userEmail, loginDateTime)"
-                    + "VALUES ('" + emailField.getText() + "'," + date + ")";
-        
+
         try
         {
-//            System.out.println(query);
-//            System.out.println(date);
-            PreparedStatement pst = con.prepareCall(query);
+            Connection con = ConnectDB.getConnection();
+            Statement stmt = null;
+            java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
             
-            con.setAutoCommit(false);
-            stmt = con.createStatement();
-            stmt.executeUpdate(query);
-            stmt.close();
-            System.out.println("log history test");
+            String query = "INSERT INTO UserLogHistory (userEmail, loginDateTime)"
+                + " VALUES (?,?);";
+   
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, emailField.getText());
+            pst.setString(2, date.toString());
+            
+            pst.executeUpdate();
+            System.out.println("log history test " + date);
+            
+            pst.close();
             con.close();
 
         }
@@ -166,7 +167,9 @@ public class LoginGUI extends javax.swing.JFrame {
             
             if (rs.next())
             {
-                JOptionPane.showMessageDialog(null, "Username and Password Matched");
+                rs.close();
+                con.close();
+                JOptionPane.showMessageDialog(null, "Login successful");
                 userLog();
 //                ChoosePersonGUI next = new ChoosePersonGUI();
 //                this.setVisible(false);
@@ -174,6 +177,8 @@ public class LoginGUI extends javax.swing.JFrame {
             }
             else
             {
+                rs.close();
+                con.close();
                 if(emailField.getText().equals("") || (pwField.getText().equals("")))
                 {
                     JOptionPane.showMessageDialog(null, "Please fill the form");

@@ -9,15 +9,15 @@ public class PopulateDB
 {
     public static void main(String[] args) 
     {
-//        insertContext();
-//        insertConversation();
-//        insertLanguage();
-//        insertLevel();
-//        insertLevelContext();
-//        insertPerson();
-//        insertSubTopic();
-//        insertTrickyWord();
-//        insertUser();
+        insertContext();
+        insertConversation();
+        insertLanguage();
+        insertLevel();
+        insertLevelContext();
+        insertPerson();
+        insertSubTopic();
+        insertTrickyWord();
+        insertUser();
     }    
     
     private static void insertContext()
@@ -66,6 +66,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }        
     }
     
@@ -113,6 +128,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }
     
@@ -159,6 +189,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }
     
@@ -205,6 +250,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }    
     
@@ -253,6 +313,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }         
     }
     
@@ -299,6 +374,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }    
     
@@ -348,6 +438,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }
     
@@ -397,6 +502,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }   
 
@@ -428,14 +548,14 @@ public class PopulateDB
                 {
                     IdChecker.add(splitSt[0]);
                     String userEmail = splitSt[0];
-                    String userFName = splitSt[1];
-                    String userLName = splitSt[2];
-                    String userPw = splitSt[2];
+                    String userPw = splitSt[1];
+                    String userFName = splitSt[2];
+                    String userLName = splitSt[3];
                     char userType = splitSt[4].charAt(0);
-                    String selectedLang = splitSt[4];
+                    String selectedLang = splitSt[5];
                     
-                    String sqlString = "INSERT INTO User (userEmail, userFName, userLName, userPw, userType, selectedLang) VALUES \n"
-                            + "('" + userEmail + "','" + userFName + "','" + userLName + "','" + userPw + "','" + userType + "','" + selectedLang + "')";
+                    String sqlString = "INSERT INTO User(userEmail, userPw, userFName, userLName, userType, selectedLang) VALUES \n"
+                            + "('" + userEmail + "','" + userPw + "','" + userFName + "','" + userLName + "','" + userType + "','" + selectedLang + "')";
                     con.setAutoCommit(false);
                     stmt = con.createStatement();
                     stmt.executeUpdate(sqlString);
@@ -447,6 +567,21 @@ public class PopulateDB
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }           
     }   
 }
