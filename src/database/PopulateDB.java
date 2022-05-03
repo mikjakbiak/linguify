@@ -17,7 +17,7 @@ public class PopulateDB
 //        insertPerson();
 //        insertSubTopic();
 //        insertTrickyWord();
-        insertUser();
+//        insertUser();
     }    
     
     private static void insertContext()

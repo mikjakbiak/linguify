@@ -26,19 +26,15 @@ public class LoginGUI extends javax.swing.JFrame {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;
         java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
-                    String query = "INSERT INTO UserLogHistory(userLogId, userEmail, loginDateTime)"
-                    + "VALUES (NULL,'" + emailField.getText() + "'," + date + ")";
+                    String query = "INSERT INTO UserLogHistory(userEmail, loginDateTime)"
+                    + "VALUES ('" + emailField.getText() + "'," + date + ")";
         
         try
         {
-            
-          
-            System.out.println(query);
-            System.out.println(date);
+//            System.out.println(query);
+//            System.out.println(date);
             PreparedStatement pst = con.prepareCall(query);
             
-//            pst.setString(2,emailField.getText());
-//            pst.setString(3, query);
             con.setAutoCommit(false);
             stmt = con.createStatement();
             stmt.executeUpdate(query);
