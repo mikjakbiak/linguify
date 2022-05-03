@@ -4,7 +4,8 @@
  */
 package views;
 
-import controller.loginController;
+
+import controller.LoginController;
 import database.ConnectDB;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -21,34 +22,6 @@ public class LoginGUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    private void userLog()
-    {
-
-        try
-        {
-            Connection con = ConnectDB.getConnection();
-            Statement stmt = null;
-            java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
-            
-            String query = "INSERT INTO UserLogHistory (userEmail, loginDateTime)"
-                + " VALUES (?,?);";
-   
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1, emailField.getText());
-            pst.setString(2, date.toString());
-            
-            pst.executeUpdate();
-            System.out.println("log history test " + date);
-            
-            pst.close();
-            con.close();
-
-        }
-        catch (SQLException ex)
-        {
-            System.out.println(ex);
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,62 +125,7 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        Connection con = ConnectDB.getConnection();
-        Statement stmt = null;
-        ResultSet rs = null;
-        
-        try 
-        {
-            String sqlQuery = "SELECT * FROM User WHERE userEmail =? AND userPw =?" ;
-            PreparedStatement pst = con.prepareStatement(sqlQuery);
-            pst.setString(1, emailField.getText());
-            pst.setString(2, pwField.getText());
-            
-            rs = pst.executeQuery();
-            
-            if (rs.next())
-            {
-                rs.close();
-                con.close();
-                JOptionPane.showMessageDialog(null, "Login successful");
-                userLog();
-//                ChoosePersonGUI next = new ChoosePersonGUI();
-//                this.setVisible(false);
-//                next.setVisible(true);
-            }
-            else
-            {
-                rs.close();
-                con.close();
-                if(emailField.getText().equals("") || (pwField.getText().equals("")))
-                {
-                    JOptionPane.showMessageDialog(null, "Please fill the form");
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Invalid Password");
-                }
-                
-            }
-            
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
+        new LoginController(evt, emailField, pwField);
     }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
