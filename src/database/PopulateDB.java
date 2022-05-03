@@ -9,14 +9,14 @@ public class PopulateDB
 {
     public static void main(String[] args) 
     {
-        insertContext();
-        insertConversation();
-        insertLanguage();
-        insertLevel();
-        insertLevelContext();
-        insertPerson();
-        insertSubTopic();
-        insertTrickyWord();
+//        insertContext();
+//        insertConversation();
+//        insertLanguage();
+//        insertLevel();
+//        insertLevelContext();
+//        insertPerson();
+//        insertSubTopic();
+//        insertTrickyWord();
         insertUser();
     }    
     

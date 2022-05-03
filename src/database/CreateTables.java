@@ -211,7 +211,7 @@ public class CreateTables
         String userLearnHistoryTbl;
         userLearnHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLearnHistory\n"
                 + "(\n"
-                + "    userLearnHistID     INTEGER,\n"
+                + "    userLearnHistID     INTEGER AUTO_INCREMENT,\n"
                 + "    \n"
                 + "    completedLvl        CHAR(1) NOT NULL,\n"
                 + "    numOfTimeLevelCompl INTEGER NOT NULL,\n"
