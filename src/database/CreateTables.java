@@ -5,13 +5,13 @@
 package database;
 
 import java.sql.*;
+
 /**
  *
  * @author mathu
  */
-public class CreateTables 
-{
-    
+public class CreateTables {
+
     public static void main(String[] args) {
         createLangTbl();
         createLevelTbl();
@@ -28,10 +28,12 @@ public class CreateTables
 
     private static void createTable(String table) {
         Connection con = ConnectDB.getConnection();
+        
         Statement stmt = null;
         try {
+            con.setAutoCommit(false);
             stmt = con.createStatement();
-            stmt.executeUpdate(table);
+            stmt.execute(table);
             con.commit();
         } catch (SQLException ex) {
             System.err.println("SQLException: " + ex.getMessage());
@@ -57,12 +59,12 @@ public class CreateTables
         String userTbl;
         userTbl = "CREATE TABLE IF NOT EXISTS User\n"
                 + "(\n"
-                + "	userEmail  	    INTEGER,\n"
+                + "	userEmail  	    VARCHAR(100),\n"
                 + "    \n"
-                + "	userFName	    VARCHAR(20) not null,\n"
-                + "	userLName	    VARCHAR(20) not null,\n"
-                + "    userPw          VARCHAR(25) not null,\n"
-                + "    userType        char(1)     not null,\n"
+                + "    userPw    w      VARCHAR(25) NOT NULL,\n"
+                + "	userFName	    VARCHAR(20) NOT NULL,\n"
+                + "	userLName	    VARCHAR(20) NOT NULL,\n"
+                + "    userType        char(1)     NOT NULL,\n"
                 + "    selectedLang    varchar(25),\n"
                 + "    \n"
                 + "	constraint 		u_ue_pk PRIMARY KEY (userEmail)\n"
@@ -192,26 +194,25 @@ public class CreateTables
     }
 
     private static void userLogHistoryTbl() {
-        String userLogHistoryTbl;
+        String userLogHistoryTbl;//cancella il db e ritesta
         userLogHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLogHistory\n"
                 + "(\n"
-                + "    userLogId           INTEGER,\n"
+                + "    userLogId           INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "    \n"
                 + "    userEmail           VARCHAR(100) NOT NULL,\n"
                 + "    \n"
-                + "    loginDateTime       DATETIME NOT NULL,\n"
-                + "    \n"
-                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n"
+                + "    loginDateTime       VARCHAR(50) NOT NULL,\n"
                 + "    constraint ue_ulh_fk  FOREIGN KEY(userEmail) references User(userEmail)\n"
                 + ");";
         createTable(userLogHistoryTbl);
     }
-
+//+ "    \n"
+//                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n
     private static void userLearnHistoryTbl() {
         String userLearnHistoryTbl;
-        userLearnHistoryTbl = "CREATE TABLE UserLearnHistory\n"
+        userLearnHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLearnHistory\n"
                 + "(\n"
-                + "    userLearnHistID     INTEGER,\n"
+                + "    userLearnHistID     INTEGER AUTO_INCREMENT,\n"
                 + "    \n"
                 + "    completedLvl        CHAR(1) NOT NULL,\n"
                 + "    numOfTimeLevelCompl INTEGER NOT NULL,\n"

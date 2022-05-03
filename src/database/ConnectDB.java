@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class ConnectDB 
 {
-        public static Connection getConnection() 
+    public static Connection getConnection() 
     {
         try 
         {
