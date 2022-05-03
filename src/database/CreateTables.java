@@ -61,7 +61,7 @@ public class CreateTables {
                 + "(\n"
                 + "	userEmail  	    VARCHAR(100),\n"
                 + "    \n"
-                + "    userPw    w      VARCHAR(25) NOT NULL,\n"
+                + "    userPw      VARCHAR(25) NOT NULL,\n"
                 + "	userFName	    VARCHAR(20) NOT NULL,\n"
                 + "	userLName	    VARCHAR(20) NOT NULL,\n"
                 + "    userType        char(1)     NOT NULL,\n"
