@@ -31,7 +31,7 @@ public class CreateTables
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate(table);
+            stmt.execute(table);
             con.commit();
         } catch (SQLException ex) {
             System.err.println("SQLException: " + ex.getMessage());
@@ -192,10 +192,10 @@ public class CreateTables
     }
 
     private static void userLogHistoryTbl() {
-        String userLogHistoryTbl;
+        String userLogHistoryTbl;//cancella il db e ritesta
         userLogHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLogHistory\n"
                 + "(\n"
-                + "    userLogId           INTEGER,\n"
+                + "    userLogId           INTEGER AUTO_INCREMENT,\n"
                 + "    \n"
                 + "    userEmail           VARCHAR(100) NOT NULL,\n"
                 + "    \n"
@@ -209,7 +209,7 @@ public class CreateTables
 
     private static void userLearnHistoryTbl() {
         String userLearnHistoryTbl;
-        userLearnHistoryTbl = "CREATE TABLE UserLearnHistory\n"
+        userLearnHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLearnHistory\n"
                 + "(\n"
                 + "    userLearnHistID     INTEGER,\n"
                 + "    \n"

@@ -17,6 +17,7 @@ public class PopulateDB
         insertPerson();
         insertSubTopic();
         insertTrickyWord();
+        insertUser();
     }    
     
     private static void insertContext()
@@ -399,52 +400,53 @@ public class PopulateDB
         }           
     }   
 
-//        private static void insertUser()
-//    {
-//        Connection con = ConnectDB.getConnection();
-//        Statement stmt = null;
-//        try 
-//        {
-//            FileInputStream fstream = new FileInputStream("C:\\Users\\mathu\\OneDrive\\Documenti\\NetbeansProjects\\Mathu\\linguify\\src\\database\\userAcc.csv");
-//            DataInputStream in = new DataInputStream(fstream);
-//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-//            String strLine;
-//            ArrayList list = new ArrayList();
-//            ArrayList IdChecker = new ArrayList();
-//            int count = 0;
-//            while ((strLine = br.readLine()) != null) {
-//                list.add(strLine);
-//                count++;
-//            }
-//            Iterator itr;
-//            for (itr = list.iterator(); itr.hasNext();) {
-//                String str = itr.next().toString();
-//                String[] splitSt = str.split("(?<!\\\\),");
-//                for (int i = 0; i < splitSt.length; i++) {
-//                    splitSt[i] = splitSt[i].replace("\\,", ", ");
-//                }
-//                if (!IdChecker.contains(splitSt[0])) 
-//                {
-//                    IdChecker.add(splitSt[0]);
-//                    int translationId = Integer.parseInt(splitSt[0]);
-//                    String translatedWord = splitSt[1];
-//                    String languageTranslated = splitSt[2];
-//                    int convID = Integer.parseInt(splitSt[3]);
-//                    String levelContextId = splitSt[4];
-//                    
-//                    String sqlString = "INSERT INTO Translation (translationId, translatedWord, languageTranslated, convID, languageName) VALUES \n"
-//                            + "(" + translationId + ",'" + translatedWord + "','" + languageTranslated + "'," + convID + ",'" + levelContextId + "')";
-//                    con.setAutoCommit(false);
-//                    stmt = con.createStatement();
-//                    stmt.executeUpdate(sqlString);
-//                    stmt.close();
-//                    con.commit();
-//                } else {
-//                    System.out.println("duplicate record, with pk :" + splitSt[0]);
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }           
-//    }   
+    private static void insertUser()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        try 
+        {
+            FileInputStream fstream = new FileInputStream("src/database/usersAcc.csv");
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            ArrayList list = new ArrayList();
+            ArrayList IdChecker = new ArrayList();
+            int count = 0;
+            while ((strLine = br.readLine()) != null) {
+                list.add(strLine);
+                count++;
+            }
+            Iterator itr;
+            for (itr = list.iterator(); itr.hasNext();) {
+                String str = itr.next().toString();
+                String[] splitSt = str.split("(?<!\\\\),");
+                for (int i = 0; i < splitSt.length; i++) {
+                    splitSt[i] = splitSt[i].replace("\\,", ", ");
+                }
+                if (!IdChecker.contains(splitSt[0])) 
+                {
+                    IdChecker.add(splitSt[0]);
+                    String userEmail = splitSt[0];
+                    String userFName = splitSt[1];
+                    String userLName = splitSt[2];
+                    String userPw = splitSt[2];
+                    char userType = splitSt[4].charAt(0);
+                    String selectedLang = splitSt[4];
+                    
+                    String sqlString = "INSERT INTO User (userEmail, userFName, userLName, userPw, userType, selectedLang) VALUES \n"
+                            + "('" + userEmail + "','" + userFName + "','" + userLName + "','" + userPw + "','" + userType + "','" + selectedLang + "')";
+                    con.setAutoCommit(false);
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sqlString);
+                    stmt.close();
+                    con.commit();
+                } else {
+                    System.out.println("duplicate record, with pk :" + splitSt[0]);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }           
+    }   
 }

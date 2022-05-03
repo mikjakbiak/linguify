@@ -120,7 +120,7 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        //new loginController(evt, this);
+        new loginController(evt);
     }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
