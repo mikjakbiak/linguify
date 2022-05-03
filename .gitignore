@@ -1,2 +1,4 @@
 /target/
 /build/
+/nbproject/private/
+.DS_Store
