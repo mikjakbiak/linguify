@@ -20,7 +20,38 @@ public class LoginGUI extends javax.swing.JFrame {
     public LoginGUI() {
         initComponents();
     }
+    
+    private void userLog()
+    {
+        Connection con = ConnectDB.getConnection();
+        Statement stmt = null;
+        java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+                    String query = "INSERT INTO UserLogHistory(userLogId, userEmail, loginDateTime)"
+                    + "VALUES (NULL,'" + emailField.getText() + "'," + date + ")";
+        
+        try
+        {
+            
+          
+            System.out.println(query);
+            System.out.println(date);
+            PreparedStatement pst = con.prepareCall(query);
+            
+//            pst.setString(2,emailField.getText());
+//            pst.setString(3, query);
+            con.setAutoCommit(false);
+            stmt = con.createStatement();
+            stmt.executeUpdate(query);
+            stmt.close();
+            System.out.println("log history test");
+            con.close();
 
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,7 +91,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
         jButton3.setText("jButton3");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo (2).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -82,19 +113,18 @@ public class LoginGUI extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(emailField)
-                            .addComponent(pwField, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))))
-                .addContainerGap(65, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(40, 40, 40))
+                            .addComponent(pwField, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel2)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -106,7 +136,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -141,10 +171,22 @@ public class LoginGUI extends javax.swing.JFrame {
             if (rs.next())
             {
                 JOptionPane.showMessageDialog(null, "Username and Password Matched");
+                userLog();
+//                ChoosePersonGUI next = new ChoosePersonGUI();
+//                this.setVisible(false);
+//                next.setVisible(true);
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Account does not exist!");
+                if(emailField.getText().equals("") || (pwField.getText().equals("")))
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill the form");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid Password");
+                }
+                
             }
             
         } catch (SQLException ex) {

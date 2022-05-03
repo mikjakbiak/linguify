@@ -5,13 +5,13 @@
 package database;
 
 import java.sql.*;
+
 /**
  *
  * @author mathu
  */
-public class CreateTables 
-{
-    
+public class CreateTables {
+
     public static void main(String[] args) {
         createLangTbl();
         createLevelTbl();
@@ -59,10 +59,10 @@ public class CreateTables
                 + "(\n"
                 + "	userEmail  	    VARCHAR(100),\n"
                 + "    \n"
-                + "	userFName	    VARCHAR(25) not null,\n"
-                + "	userLName	    VARCHAR(25) not null,\n"
-                + "    userPw          VARCHAR(25) not null,\n"
-                + "    userType        char(1)     not null,\n"
+                + "    userPw          VARCHAR(25) NOT NULL,\n"
+                + "	userFName	    VARCHAR(20) NOT NULL,\n"
+                + "	userLName	    VARCHAR(20) NOT NULL,\n"
+                + "    userType        char(1)     NOT NULL,\n"
                 + "    selectedLang    varchar(25),\n"
                 + "    \n"
                 + "	constraint 		u_ue_pk PRIMARY KEY (userEmail)\n"
