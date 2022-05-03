@@ -5,6 +5,8 @@
 package views;
 
 import database.ConnectDB;
+import user.UserModel;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,11 +16,18 @@ import java.util.Iterator;
  * @author mikjakbiak
  */
 public class ChooseLanguageView extends javax.swing.JFrame {
+    UserModel userModel;
+    javax.swing.JFrame previousJFrame;
 
     /**
      * Creates new form ChooseLanguageView
      */
     public ChooseLanguageView() {
+        initComponents();
+    }
+    
+    public ChooseLanguageView(javax.swing.JFrame previousJFrame) {
+        this.previousJFrame = previousJFrame;
         initComponents();
     }
 
@@ -36,13 +45,17 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         germanBtn = new javax.swing.JButton();
         SpanishBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        homeBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(330, 570));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo.png"))); // NOI18N
 
         germanBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Flag_of_Germany.png"))); // NOI18N
-        germanBtn.setText("German");
+        germanBtn.setText("German\n");
         germanBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 germanBtnActionPerformed(evt);
@@ -52,6 +65,7 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         SpanishBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Flag_of_Spain.png"))); // NOI18N
         SpanishBtn.setText("Spanish");
         SpanishBtn.setToolTipText("");
+        SpanishBtn.setActionCommand("Spanish\n"); // NOI18N
         SpanishBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SpanishBtnActionPerformed(evt);
@@ -62,10 +76,54 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         jLabel2.setText("Choose your language");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 182, 182)));
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+
+        homeBtn.setBackground(new java.awt.Color(51, 51, 51));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeNew.png"))); // NOI18N
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
+        backBtn.setBackground(new java.awt.Color(51, 51, 51));
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(4, 4, 4))
+        );
+
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(98, 98, 98))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -76,11 +134,8 @@ public class ChooseLanguageView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(germanBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(SpanishBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(7, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(98, 98, 98))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +148,8 @@ public class ChooseLanguageView extends javax.swing.JFrame {
                 .addComponent(SpanishBtn)
                 .addGap(18, 18, 18)
                 .addComponent(germanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,26 +160,40 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void germanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_germanBtnActionPerformed
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         // TODO add your handling code here:
-        ChooseLanguageLevelView next = new ChooseLanguageLevelView("German");
-        this.setVisible(false);
-        next.setVisible(true);
-    }//GEN-LAST:event_germanBtnActionPerformed
+    }//GEN-LAST:event_homeBtnActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println(previousJFrame);
+        // TODO add your handling code here:
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
+        
+    } 
+    
     private void SpanishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpanishBtnActionPerformed
         // TODO add your handling code here:
-//        fetchData();
-        ChooseLanguageLevelView next = new ChooseLanguageLevelView("Spanish");
+        //        fetchData();
+        ChooseLanguageLevelView next = new ChooseLanguageLevelView(this, "Spanish");
         this.setVisible(false);
         next.setVisible(true);
     }//GEN-LAST:event_SpanishBtnActionPerformed
+
+    private void germanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_germanBtnActionPerformed
+        // TODO add your handling code here:
+        ChooseLanguageLevelView next = new ChooseLanguageLevelView(this, "German");
+        this.setVisible(false);
+        next.setVisible(true);
+    }//GEN-LAST:event_germanBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,9 +273,12 @@ public class ChooseLanguageView extends javax.swing.JFrame {
     private javax.swing.JButton[] LanguageBtns;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SpanishBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton germanBtn;
+    private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

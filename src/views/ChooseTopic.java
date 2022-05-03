@@ -9,7 +9,9 @@ package views;
  * @author mikjakbiak
  */
 public class ChooseTopic extends javax.swing.JFrame {
-
+    javax.swing.JFrame previousJFrame;
+    String levelId;
+    
     /**
      * Creates new form ChooseTopic
      */
@@ -17,6 +19,27 @@ public class ChooseTopic extends javax.swing.JFrame {
         initComponents();
     }
 
+    public ChooseTopic(String levelId) {
+        this.levelId = levelId;
+        initComponents();
+            
+//        switch(levelId) {
+//            case "Spanish" -> {
+//                jPanel3.setVisible(true);
+//                jPanel4.setVisible(false);
+//            }
+//            case "German" -> {
+//                jPanel3.setVisible(false);
+//                jPanel4.setVisible(true);
+//            }
+//        }
+    }
+
+    public ChooseTopic(javax.swing.JFrame previousJFrame, String language) {
+        this(language);
+        this.previousJFrame = previousJFrame;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,10 +61,13 @@ public class ChooseTopic extends javax.swing.JFrame {
         javax.swing.JButton jButton9 = new javax.swing.JButton();
         javax.swing.JButton jButton10 = new javax.swing.JButton();
         javax.swing.JButton jButton11 = new javax.swing.JButton();
+        javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
+        javax.swing.JButton homeBtn = new javax.swing.JButton();
+        javax.swing.JButton backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo.png"))); // NOI18N
 
         jLabel2.setText("Choose a topic");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 182, 182)));
@@ -82,6 +108,48 @@ public class ChooseTopic extends javax.swing.JFrame {
         jButton11.setText("<html>Basic\n<br>\nemployment\n<br>\nissues");
         jButton11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+
+        homeBtn.setBackground(new java.awt.Color(51, 51, 51));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeNew.png"))); // NOI18N
+        homeBtn.setActionCommand("homeBtn");
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
+        backBtn.setBackground(new java.awt.Color(51, 51, 51));
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
+        backBtn.setActionCommand("backBtn");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(4, 4, 4))
+        );
+
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,6 +186,7 @@ public class ChooseTopic extends javax.swing.JFrame {
                                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(27, 27, 27))))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +211,8 @@ public class ChooseTopic extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,6 +229,20 @@ public class ChooseTopic extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println(previousJFrame);
+        // TODO add your handling code here:
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
+        
+    } 
+    
     /**
      * @param args the command line arguments
      */
