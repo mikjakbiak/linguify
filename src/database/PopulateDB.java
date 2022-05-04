@@ -526,7 +526,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("src/database/usersAcc.csv");
+            FileInputStream fstream = new FileInputStream("src/database/users.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;

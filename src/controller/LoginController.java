@@ -5,10 +5,11 @@ import encryption.PasswordUtils1;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
+import user.UserModel;
 
 public class LoginController {
     
-    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField)
+    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField, UserModel userModel)
     {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;
@@ -35,7 +36,12 @@ public class LoginController {
                     stmt.close();
                     con.close();
                     JOptionPane.showMessageDialog(null, "Login successful");
+                    
+                    
+                    userModel.setEmail(emailField.getText());
                     userLog(emailField);
+                    
+                    //store the email somewhere
                 }
                 else
                 {
@@ -53,7 +59,7 @@ public class LoginController {
                 }
 
             } catch (SQLException ex) {
-                //System.err.println("SQLException: " + ex.getMessage());
+                System.err.println("SQLException: " + ex.getMessage());
             } finally {
                 if (stmt != null) {
                     try {

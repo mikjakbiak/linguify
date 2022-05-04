@@ -8,11 +8,14 @@ import controller.*;
 import database.ConnectDB;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import user.UserModel;
 /**
  *
  * @author mathu
  */
 public class LoginGUI extends javax.swing.JFrame {
+
+    private UserModel userModel;
 
     /**
      * Creates new form LoginGUI
@@ -20,34 +23,11 @@ public class LoginGUI extends javax.swing.JFrame {
     public LoginGUI() {
         initComponents();
     }
-    
-    private void userLog()
+
+    public LoginGUI(UserModel userModel) 
     {
-
-        try
-        {
-            Connection con = ConnectDB.getConnection();
-            Statement stmt = null;
-            java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
-            
-            String query = "INSERT INTO UserLogHistory (userEmail, loginDateTime)"
-                + " VALUES (?,?);";
-   
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1, emailField.getText());
-            pst.setString(2, date.toString());
-            
-            pst.executeUpdate();
-            System.out.println("log history test " + date);
-            
-            pst.close();
-            con.close();
-
-        }
-        catch (SQLException ex)
-        {
-            System.out.println(ex);
-        }
+        this.userModel = userModel;
+        initComponents();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,8 +110,8 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pwField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,7 +132,7 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        new LoginController(evt, emailField, pwField);
+        LoginController loginController = new LoginController(evt, emailField, pwField, userModel);
     }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
