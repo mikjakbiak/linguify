@@ -73,7 +73,8 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         });
 
-        backBtn.setText("Go Back");
+        backBtn.setBackground(new java.awt.Color(0, 0, 0));
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);

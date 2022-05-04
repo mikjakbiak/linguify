@@ -31,26 +31,21 @@ public class StudentProgressController
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
             String sqlQuery = "SELECT levelContextId FROM UserLearnHistory WHERE userEmail =?";
-//            PreparedStatement pst = con.prepareStatement(sqlQuery);
-//            pst.setString(1, userModel.getEmail());
-//            
-//            ResultSet rs = pst.executeQuery();
-//            
-//            if(rs.next())
-//            {
-//                
-//            }
-//            else
-//            {
-//                JOptionPane.showMessageDialog(null, "error");
-//            }
+            PreparedStatement pst = con.prepareStatement(sqlQuery);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
             
-            con.close();
-            dataset.setValue(6, "Profit", "Jane");
-            dataset.setValue(7, "Profit", "Tom");
-            dataset.setValue(8, "Profit", "Jill");
-            dataset.setValue(5, "Profit", "John");
-            dataset.setValue(12, "Profit", "Fred");
+            int startingInt = 0;
+            
+            int userProgress = rs.getInt("levelContextId");
+            
+            System.out.println("IF WORKS: " + userProgress);
+                    
+
+            dataset.setValue(userProgress, "Level", "A1");
+            dataset.setValue(7, "Level", "A2");
+            dataset.setValue(8, "Level", "B1");
+            dataset.setValue(5, "Leve", "B2");
             JFreeChart chart = ChartFactory.createBarChart("Student Progress",
             "Salesman", "Profit", dataset, PlotOrientation.VERTICAL, false, true, false);
 
@@ -58,6 +53,9 @@ public class StudentProgressController
             chartPanel.removeAll();
             chartPanel.add(panel, BorderLayout.CENTER);
             chartPanel.validate();
+            rs.close();
+            con.close();
+            
         }
         catch(Exception e)
         {

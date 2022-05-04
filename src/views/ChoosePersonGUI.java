@@ -56,11 +56,14 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(153, 133, 133));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        goBackBtn.setText("Go Back");
+        goBackBtn.setBackground(new java.awt.Color(0, 0, 0));
+        goBackBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
         goBackBtn.setActionCommand("backBtn");
 
-        homeBtn.setText("Home");
+        homeBtn.setBackground(new java.awt.Color(0, 0, 0));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeNew.png"))); // NOI18N
         homeBtn.setActionCommand("homeBtn");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -68,9 +71,9 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(goBackBtn)
-                .addGap(59, 59, 59)
-                .addComponent(homeBtn)
+                .addComponent(goBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
