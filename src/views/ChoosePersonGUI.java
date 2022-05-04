@@ -7,6 +7,7 @@ import user.UserModel;
  * @author mathu
  */
 public class ChoosePersonGUI extends javax.swing.JFrame {
+    private javax.swing.JFrame previousJFrame;
     private int subContID;
     private UserModel user;
 
@@ -17,7 +18,8 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ChoosePersonGUI(int subContID, UserModel user) {
+    public ChoosePersonGUI(javax.swing.JFrame previousJFrame, int subContID, UserModel user) {
+        this.previousJFrame = previousJFrame;
         this.subContID = subContID;
         this.user = user;
         System.out.println("subContID: " + subContID);
@@ -166,9 +168,10 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_aBtnActionPerformed
 
     private void goBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackBtnActionPerformed
-        new ChooseSubTopicView().setVisible(true);
-        this.setVisible(false);
-        
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
     }//GEN-LAST:event_goBackBtnActionPerformed
 
     /**
