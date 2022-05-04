@@ -4,12 +4,7 @@
  */
 package views;
 
-import database.ConnectDB;
 import user.UserModel;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *
@@ -25,9 +20,20 @@ public class ChooseLanguageView extends javax.swing.JFrame {
     public ChooseLanguageView() {
         initComponents();
     }
+
+    public ChooseLanguageView(UserModel userModel) {
+        this.userModel = userModel;
+        initComponents();
+    }
     
     public ChooseLanguageView(javax.swing.JFrame previousJFrame) {
         this.previousJFrame = previousJFrame;
+        initComponents();
+    }
+
+    public ChooseLanguageView(javax.swing.JFrame previousJFrame, UserModel userModel) {
+        this.previousJFrame = previousJFrame;
+        this.userModel = userModel;
         initComponents();
     }
 
@@ -87,6 +93,7 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         });
 
         backBtn.setBackground(new java.awt.Color(51, 51, 51));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -182,17 +189,14 @@ public class ChooseLanguageView extends javax.swing.JFrame {
     
     private void SpanishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpanishBtnActionPerformed
         // TODO add your handling code here:
-        //        fetchData();
-        ChooseLanguageLevelView next = new ChooseLanguageLevelView(this, "Spanish");
-        this.setVisible(false);
-        next.setVisible(true);
+        userModel.setLanguage("Spanish");
+        displayNextJFrame();
     }//GEN-LAST:event_SpanishBtnActionPerformed
 
     private void germanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_germanBtnActionPerformed
         // TODO add your handling code here:
-        ChooseLanguageLevelView next = new ChooseLanguageLevelView(this, "German");
-        this.setVisible(false);
-        next.setVisible(true);
+        userModel.setLanguage("German");
+        displayNextJFrame();
     }//GEN-LAST:event_germanBtnActionPerformed
 
     /**
@@ -227,47 +231,11 @@ public class ChooseLanguageView extends javax.swing.JFrame {
             new ChooseLanguageView().setVisible(true);
         });
     }
-    
-    private void fetchData() {
-        Connection con = ConnectDB.getConnection();
-        Statement stmt = null;
-        ResultSet rs;
-        
-        try {
-            String sqlQuery = "SELECT * FROM Language" ;
-            PreparedStatement pst = con.prepareStatement(sqlQuery);
-            rs = pst.executeQuery();
-            
-            ArrayList Languages = new ArrayList();
-            
-            while (rs.next()) {
-                String languageName = rs.getString(1);
-                System.out.println(languageName);
-                Languages.add(languageName);
-            }
 
-            Iterator itr;
-            for (itr = Languages.iterator(); itr.hasNext(); ) {
-                String str = itr.next().toString();
-            }
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
+    private void displayNextJFrame() {
+        ChooseLanguageLevelView next = new ChooseLanguageLevelView(this, userModel);
+        this.setVisible(false);
+        next.setVisible(true);
     }
 
     private javax.swing.JButton[] LanguageBtns;

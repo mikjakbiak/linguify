@@ -4,13 +4,15 @@
  */
 package views;
 
+import user.UserModel;
+
 /**
  *
  * @author mikjakbiak
  */
 public class ChooseLanguageLevelView extends javax.swing.JFrame {
-    private String language;
     javax.swing.JFrame previousJFrame;
+    private UserModel userModel;
 
     /**
      * Creates new form ChooseLanguageView
@@ -19,11 +21,12 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ChooseLanguageLevelView(String language) {
-        this.language = language;
+    public ChooseLanguageLevelView(javax.swing.JFrame previousJFrame, UserModel userModel) {
+        this.previousJFrame = previousJFrame;
+        this.userModel = userModel;
         initComponents();
-            
-        switch(language) {
+
+        switch(userModel.getLanguage()) {
             case "Spanish" -> {
                 jPanel3.setVisible(true);
                 jPanel4.setVisible(false);
@@ -33,11 +36,6 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
                 jPanel4.setVisible(true);
             }
         }
-    }
-
-    public ChooseLanguageLevelView(javax.swing.JFrame previousJFrame, String language) {
-        this(language);
-        this.previousJFrame = previousJFrame;
     }
 
     /**
@@ -62,6 +60,7 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
         javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
         javax.swing.JButton homeBtn = new javax.swing.JButton();
         javax.swing.JButton backBtn = new javax.swing.JButton();
@@ -97,10 +96,20 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         levelB1.setBackground(new java.awt.Color(255, 224, 214));
         levelB1.setText("B1");
         levelB1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        levelB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                levelB1ActionPerformed(evt);
+            }
+        });
 
         levelA1.setBackground(new java.awt.Color(255, 224, 214));
         levelA1.setText("A1");
         levelA1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        levelA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                levelA1ActionPerformed(evt);
+            }
+        });
 
         levelB2.setBackground(new java.awt.Color(255, 224, 214));
         levelB2.setText("B2");
@@ -140,13 +149,20 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
 
         jLabel4.setText("Please select Spanish");
 
+        jLabel5.setText("WIP");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel4)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel5)))
                 .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -157,7 +173,9 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel4)
                 .addGap(61, 61, 61))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,6 +297,8 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
 
     private void levelB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelB2ActionPerformed
         // TODO add your handling code here:
+        userModel.setLanguageLevelId(4);
+        displayNextJFrame();
     }//GEN-LAST:event_levelB2ActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
@@ -297,7 +317,21 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
     
     private void levelA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelA2ActionPerformed
         // TODO add your handling code here:
+        userModel.setLanguageLevelId(2);
+        displayNextJFrame();
     }//GEN-LAST:event_levelA2ActionPerformed
+
+    private void levelB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelB1ActionPerformed
+        // TODO add your handling code here:
+        userModel.setLanguageLevelId(3);
+        displayNextJFrame();
+    }//GEN-LAST:event_levelB1ActionPerformed
+
+    private void levelA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelA1ActionPerformed
+        // TODO add your handling code here:
+        userModel.setLanguageLevelId(1);
+        displayNextJFrame();
+    }//GEN-LAST:event_levelA1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,6 +367,12 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
                 new ChooseLanguageLevelView().setVisible(true);
             }
         });
+    }
+
+    private void displayNextJFrame() {
+        ChooseTopic next = new ChooseTopic(this, userModel);
+        this.setVisible(false);
+        next.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

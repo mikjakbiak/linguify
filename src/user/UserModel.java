@@ -9,10 +9,38 @@ package user;
  * @author mikjakbiak
  */
 public class UserModel {
+    String email;
     String chosenLanguage;
-    
-    public void chooseLanguage(String language){
+    int chosenLanguageLevelId;
+    int chosenContextId;
+    int chosenSubContextId;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setLanguage(String language){
         chosenLanguage = language;
     }
-    
+    public void setLanguageLevelId(int languageLevel){
+        chosenLanguageLevelId = languageLevel;
+    }
+    public void setContextId(int context){
+        chosenContextId = context;
+    }
+    public void setSubContextId(int subContext){
+        chosenSubContextId = subContext;
+    }
+
+    public String getLanguage(){
+        return chosenLanguage;
+    }
+    public int getLanguageLevel(){
+        return chosenLanguageLevelId;
+    }
+    public int getContext(){
+        return chosenContextId;
+    }
+    public int getSubContext(){
+        return chosenSubContextId;
+    }
 }
