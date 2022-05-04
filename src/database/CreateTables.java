@@ -28,8 +28,10 @@ public class CreateTables {
 
     private static void createTable(String table) {
         Connection con = ConnectDB.getConnection();
+
         Statement stmt = null;
         try {
+            con.setAutoCommit(false);
             stmt = con.createStatement();
             stmt.execute(table);
             con.commit();
@@ -53,19 +55,21 @@ public class CreateTables {
         }
     }
 
-    private static void createUserTbl() {
+       private static void createUserTbl() {
         String userTbl;
         userTbl = "CREATE TABLE IF NOT EXISTS User\n"
                 + "(\n"
-                + "	userEmail  	    VARCHAR(100),\n"
+                + "    userEmail          VARCHAR(100),\n"
                 + "    \n"
-                + "    userPw          VARCHAR(25) NOT NULL,\n"
-                + "	userFName	    VARCHAR(20) NOT NULL,\n"
-                + "	userLName	    VARCHAR(20) NOT NULL,\n"
+                + "    userPw          VARCHAR(50),\n"
+                + "    userFName        VARCHAR(50) NOT NULL,\n"
+                + "    userLName        VARCHAR(50) NOT NULL,\n"
                 + "    userType        char(1)     NOT NULL,\n"
+                + "    encryptedKey    VARCHAR(100)NOT NULL,\n"
+                + "    encryptedPw     VARCHAR(100)NOT NULL,\n"
                 + "    selectedLang    varchar(25),\n"
                 + "    \n"
-                + "	constraint 		u_ue_pk PRIMARY KEY (userEmail)\n"
+                + "    constraint         u_ue_pk PRIMARY KEY (userEmail)\n"
                 + ");";
         createTable(userTbl);
     }
@@ -195,39 +199,36 @@ public class CreateTables {
         String userLogHistoryTbl;//cancella il db e ritesta
         userLogHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLogHistory\n"
                 + "(\n"
-                + "    userLogId           INTEGER AUTO_INCREMENT,\n"
+                + "    userLogId           INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "    \n"
                 + "    userEmail           VARCHAR(100) NOT NULL,\n"
                 + "    \n"
-                + "    loginDateTime       DATETIME NOT NULL,\n"
-                + "    \n"
-                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n"
+                + "    loginDateTime       VARCHAR(50) NOT NULL,\n"
                 + "    constraint ue_ulh_fk  FOREIGN KEY(userEmail) references User(userEmail)\n"
                 + ");";
         createTable(userLogHistoryTbl);
     }
+//+ "    \n"
+//                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n
 
     private static void userLearnHistoryTbl() {
         String userLearnHistoryTbl;
         userLearnHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLearnHistory\n"
                 + "(\n"
-                + "    userLearnHistID     INTEGER AUTO_INCREMENT,\n"
+                + "	userLearnHistID  	    INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "    \n"
-                + "    completedLvl        CHAR(1) NOT NULL,\n"
-                + "    numOfTimeLevelCompl INTEGER NOT NULL,\n"
+                + "    levelContextId          INTEGER NOT NULL,\n"
+                + "    subContextId            INTEGER NOT NULL,\n"
+                + "    userEmail               VARCHAR(50) NOT NULL,\n"
+                + "	courseProgress          CHAR(1) NOT NULL,\n"
+                + "    languageName            VARCHAR(25) NOT NULL,\n"
+                + "    date_time               VARCHAR(50) NOT NULL,\n"
                 + "    \n"
-                + "    levelContextId      INTEGER NOT NULL,\n"
-                + "    userEmail           VARCHAR(100) NOT NULL,\n"
-                + "    subContextID        INTEGER NOT NULL,\n"
-                + "    courseStatus        VARCHAR(20),\n"
-                + "    languageName        VARCHAR(25) NOT NULL,\n"
-                + "    date_time           DATETIME NOT NULL,\n"
                 + "    \n"
-                + "    constraint ulid_ulh_pk PRIMARY KEY(userLearnHistID),\n"
-                + "    constraint lcid_ulh_fk FOREIGN KEY(levelContextId) references LevelContext(levelContextId),\n"
-                + "    constraint ue_ulh_fk    FOREIGN KEY(userEmail) references User(userEmail),\n"
-                + "    constraint scid_ulh_fk  FOREIGN KEY(subContextID) references SubContext(subContID),\n"
-                + "    constraint ln_ulh_fk    FOREIGN KEY(languageName) references Language(languageName) \n"
+                + "    constraint      lcid_ule_fk FOREIGN KEY(levelContextId) references LevelContext(levelContextId),\n"
+                + "    constraint      scid_ule_fk FOREIGN KEY(subContextId)   references SubContext(subContID),\n"
+                + "    constraint      ue_ule_fk FOREIGN KEY(userEmail) references User(userEmail),\n"
+                + "    constraint      ln_ule_fk FOREIGN KEY(languageName) references Language(languageName)\n"
                 + ");";
         createTable(userLearnHistoryTbl);
     }
