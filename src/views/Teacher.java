@@ -4,16 +4,37 @@
  */
 package views;
 
+import user.UserModel;
+
 /**
  *
  * @author ash
  */
-public class TeacherPanel extends javax.swing.JFrame {
+public class Teacher extends javax.swing.JFrame {
+
+    private String date;
+    private UserModel user;
+    private String email;
 
     /**
      * Creates new form teacherPanel
      */
-    public TeacherPanel() {
+    public Teacher() {
+        initComponents();
+    }
+    
+    public Teacher(UserModel user, String date, String email) 
+    {
+        this.user = user;
+        this.date = date;
+        this.email = email;
+        initComponents();
+    }
+    
+    public Teacher(UserModel user, String email) 
+    {
+        this.user = user;
+        this.email = email;
         initComponents();
     }
 
@@ -127,7 +148,7 @@ public class TeacherPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void stprogressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stprogressBtnActionPerformed
-          new StudentProgressGUI().setVisible(true);
+        new StudentProgressGUI(user, email).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_stprogressBtnActionPerformed
 
@@ -148,21 +169,27 @@ public class TeacherPanel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TeacherPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TeacherPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TeacherPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TeacherPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TeacherPanel().setVisible(true);
+                new Teacher().setVisible(true);
             }
         });
     }

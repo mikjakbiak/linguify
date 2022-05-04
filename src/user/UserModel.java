@@ -7,6 +7,7 @@ package user;
 public class UserModel {
     String chosenLanguage;
     String userEmail;
+    String userType;
     //all the user information will be stored in the user model
     
     //when the user logs in, user model will store data about the userd etails for the current login session
@@ -14,6 +15,17 @@ public class UserModel {
         chosenLanguage = language;
         //userEmail = email;
     }
+    
+    public void setType(String userType)
+    {
+        this.userType = userType;
+    }
+    
+    public String getType()
+    {
+        return userType;
+    }
+    
     
     public void setEmail(String email)
     {

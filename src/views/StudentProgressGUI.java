@@ -14,6 +14,7 @@ import java.io.File;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.plot.*;
 import org.jfree.data.category.*;
+import user.UserModel;
 
 /**
  *
@@ -21,10 +22,18 @@ import org.jfree.data.category.*;
  */
 public class StudentProgressGUI extends javax.swing.JFrame {
 
+    private UserModel user;
+    private String email;
     /**
      * Creates new form StudentProgressGUI
      */
     public StudentProgressGUI() {
+        initComponents();
+    }
+    
+    public StudentProgressGUI(UserModel user, String email) {
+        this.user = user;
+        this.email = email;
         initComponents();
     }
 
@@ -139,13 +148,25 @@ public class StudentProgressGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewProgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProgBtnActionPerformed
-        new StudentProgressController(chartPanel);
+        new StudentProgressController(chartPanel, email);
     }//GEN-LAST:event_viewProgBtnActionPerformed
 
     private void progBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_progBackBtnActionPerformed
-                        StudentPanel next = new StudentPanel();
-                this.setVisible(false);
-                next.setVisible(true);
+            switch(user.getType())
+            {
+                case "S":
+                    StudentPanel sp = new StudentPanel(user, email);
+                    this.setVisible(false);
+                    sp.setVisible(true);
+                    break;
+                        
+                case "T":
+                    Teacher tp = new Teacher(user, email);
+                    this.setVisible(false);
+                    tp.setVisible(true);
+                    break;
+        }
+
     }//GEN-LAST:event_progBackBtnActionPerformed
 
     /**

@@ -4,11 +4,17 @@
  */
 package views;
 
+import user.UserModel;
+
 /**
  *
  * @author ash
  */
 public class StudentPanel extends javax.swing.JFrame {
+
+    private String date;
+    private UserModel user;
+    private String email;
 
     /**
      * Creates new form Studentpanel
@@ -16,6 +22,21 @@ public class StudentPanel extends javax.swing.JFrame {
     public StudentPanel() {
         initComponents();
     }
+    
+    public StudentPanel(UserModel user, String email) 
+    {
+        this.user = user;
+        this.email = email;
+        initComponents();
+    }
+    public StudentPanel(UserModel user, String date, String email) 
+    {
+        this.user = user;
+        this.date = date;
+        this.email = email;
+        initComponents();
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,7 +148,7 @@ public class StudentPanel extends javax.swing.JFrame {
 
     private void viewProgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProgBtnActionPerformed
         // TODO add your handling code here:
-        new StudentProgressGUI().setVisible(true);
+        new StudentProgressGUI(user, email).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_viewProgBtnActionPerformed
 

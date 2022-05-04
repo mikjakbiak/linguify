@@ -15,14 +15,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import user.UserModel;
 
 /**
  *
  * @author shefi
  */
 public class RegistrationController {
-
-    public RegistrationController(JTextField Fn, JTextField Ln, JTextField Em, JPasswordField Pw, ButtonGroup Bg, JRadioButton Srbtn, JRadioButton Trbtn) throws SQLException 
+    
+    public RegistrationController(JTextField Fn, JTextField Ln, JTextField Em, JPasswordField Pw, ButtonGroup Bg, JRadioButton Srbtn, JRadioButton Trbtn, UserModel user) throws SQLException 
     {
         try 
         {
@@ -48,10 +49,6 @@ public class RegistrationController {
 
             // Protect user's password. The generated value can be stored in DB.
             String mySecurePassword = PasswordUtils1.generateSecurePassword(myPassword, salt);
-
-            // Print out protected password 
-            System.out.println("HASH + SALT = " + mySecurePassword);
-            System.out.println("SALT = " + salt);
 
             String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw, selectedLang) VALUES(?, NULL, ?, ?, ?, ?, ?, ?)";
 
