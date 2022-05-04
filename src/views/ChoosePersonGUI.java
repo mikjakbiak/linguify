@@ -153,14 +153,14 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBtnActionPerformed
-        dialogue dPanel = new dialogue(user, 2, subContID);
+        dialogue dPanel = new dialogue(this, user, 2, subContID);
         System.out.println(user.getEmail());
         this.setVisible(false);
         dPanel.setVisible(true);
     }//GEN-LAST:event_bBtnActionPerformed
 
     private void aBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aBtnActionPerformed
-        dialogue dPanel = new dialogue(user, 1, subContID);
+        dialogue dPanel = new dialogue(this, user, 1, subContID);
         System.out.println(user.getEmail());
         this.setVisible(false);
         dPanel.setVisible(true);

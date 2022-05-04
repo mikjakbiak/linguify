@@ -4,6 +4,7 @@
  */
 package views;
 
+import javax.swing.JFrame;
 import user.UserModel;
 
 /**
@@ -15,6 +16,8 @@ public class dialogue extends javax.swing.JFrame
     private UserModel user;
     private int personID;
     private int subContextID;
+    private int subContID;
+    private JFrame previousJFrame;
     /**
      * Creates new form trialform
      */
@@ -27,6 +30,15 @@ public class dialogue extends javax.swing.JFrame
         this.user = user;
         this.personID = personID;
         this.subContextID = subContextID;
+        initComponents();
+    }
+    
+    public dialogue(javax.swing.JFrame previousJFrame, UserModel user, int personID, int subContextID) 
+    {
+        this.previousJFrame = previousJFrame;
+        this.subContID = subContID;
+        this.user = user;
+        System.out.println("subContID: " + subContID);
         initComponents();
     }
 
@@ -72,6 +84,11 @@ public class dialogue extends javax.swing.JFrame
 
         backBtn.setBackground(new java.awt.Color(51, 51, 51));
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -194,6 +211,13 @@ public class dialogue extends javax.swing.JFrame
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
