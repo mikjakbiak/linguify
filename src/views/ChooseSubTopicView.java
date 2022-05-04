@@ -706,82 +706,119 @@ public class ChooseSubTopicView extends javax.swing.JFrame {
 
     private void jButtonL1C1S1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C1S1ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(1);
+        displayNextJFrame(1);
     }//GEN-LAST:event_jButtonL1C1S1ActionPerformed
 
     private void jButtonL1C1S4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C1S4ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(4);
+        displayNextJFrame(4);
     }//GEN-LAST:event_jButtonL1C1S4ActionPerformed
 
     private void jButtonL1C2S6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C2S6ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(6);
+        displayNextJFrame(6);
     }//GEN-LAST:event_jButtonL1C2S6ActionPerformed
 
     private void jButtonL1C2S7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C2S7ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(7);
+        displayNextJFrame(7);
     }//GEN-LAST:event_jButtonL1C2S7ActionPerformed
 
     private void jButtonL1C1S2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C1S2ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(2);
+        displayNextJFrame(2);
     }//GEN-LAST:event_jButtonL1C1S2ActionPerformed
 
     private void jButtonL1C1S5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C1S5ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(5);
+        displayNextJFrame(5);
     }//GEN-LAST:event_jButtonL1C1S5ActionPerformed
 
     private void jButtonL1C1S3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1C1S3ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(3);
+        displayNextJFrame(3);
     }//GEN-LAST:event_jButtonL1C1S3ActionPerformed
 
     private void jButtonL2C1S39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C1S39ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(39);
+        displayNextJFrame(39);
     }//GEN-LAST:event_jButtonL2C1S39ActionPerformed
 
     private void jButtonL2C1S40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C1S40ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(40);
+        displayNextJFrame(40);
     }//GEN-LAST:event_jButtonL2C1S40ActionPerformed
 
     private void jButtonL2C1S41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C1S41ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(41);
+        displayNextJFrame(41);
     }//GEN-LAST:event_jButtonL2C1S41ActionPerformed
 
     private void jButtonL2C1S42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C1S42ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(42);
+        displayNextJFrame(42);
     }//GEN-LAST:event_jButtonL2C1S42ActionPerformed
 
     private void jButtonL2C1S43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C1S43ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(43);
+        displayNextJFrame(43);
     }//GEN-LAST:event_jButtonL2C1S43ActionPerformed
 
     private void jButtonL2C1S44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C1S44ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(44);
+        displayNextJFrame(44);
     }//GEN-LAST:event_jButtonL2C1S44ActionPerformed
 
     private void jButtonL2C2S27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2C2S27ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(27);
+        displayNextJFrame(27);
     }//GEN-LAST:event_jButtonL2C2S27ActionPerformed
 
     private void jButtonL4C2S61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL4C2S61ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(61);
+        displayNextJFrame(61);
     }//GEN-LAST:event_jButtonL4C2S61ActionPerformed
 
     private void jButtonL3C2S50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3C2S50ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(50);
+        displayNextJFrame(50);
     }//GEN-LAST:event_jButtonL3C2S50ActionPerformed
 
     private void jButtonL3C2S51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3C2S51ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(51);
+        displayNextJFrame(51);
     }//GEN-LAST:event_jButtonL3C2S51ActionPerformed
 
     private void jButtonL3C2S52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3C2S52ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(52);
+        displayNextJFrame(52);
     }//GEN-LAST:event_jButtonL3C2S52ActionPerformed
 
     private void jButtonL3C1S58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3C1S58ActionPerformed
         // TODO add your handling code here:
+        userModel.setSubContextId(58);
+        displayNextJFrame(58);
     }//GEN-LAST:event_jButtonL3C1S58ActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println(previousJFrame);
         // TODO add your handling code here:
         if (previousJFrame != null) {
             this.setVisible(false);
@@ -823,6 +860,12 @@ public class ChooseSubTopicView extends javax.swing.JFrame {
                 new ChooseSubTopicView().setVisible(true);
             }
         });
+    }
+
+    private void displayNextJFrame(int subTopicId) {
+        ChoosePersonGUI next = new ChoosePersonGUI(subTopicId);
+        this.setVisible(false);
+        next.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,11 +9,18 @@ package views;
  * @author mathu
  */
 public class ChoosePersonGUI extends javax.swing.JFrame {
+    int subContID;
 
     /**
      * Creates new form ChoosePersonGUI
      */
     public ChoosePersonGUI() {
+        initComponents();
+    }
+    
+    public ChoosePersonGUI(int subContID) {
+        this.subContID = subContID;
+        System.out.println("subContID: " + subContID);
         initComponents();
     }
 
@@ -39,7 +46,7 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(241, 241, 241));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Choose Person");
@@ -112,7 +119,7 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
