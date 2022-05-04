@@ -55,21 +55,21 @@ public class CreateTables {
         }
     }
 
-    private static void createUserTbl() {
+       private static void createUserTbl() {
         String userTbl;
         userTbl = "CREATE TABLE IF NOT EXISTS User\n"
                 + "(\n"
-                + "	userEmail  	    VARCHAR(100),\n"
+                + "    userEmail          VARCHAR(100),\n"
                 + "    \n"
                 + "    userPw          VARCHAR(50),\n"
-                + "	userFName	    VARCHAR(50) NOT NULL,\n"
-                + "	userLName	    VARCHAR(50) NOT NULL,\n"
+                + "    userFName        VARCHAR(50) NOT NULL,\n"
+                + "    userLName        VARCHAR(50) NOT NULL,\n"
                 + "    userType        char(1)     NOT NULL,\n"
                 + "    encryptedKey    VARCHAR(100)NOT NULL,\n"
                 + "    encryptedPw     VARCHAR(100)NOT NULL,\n"
                 + "    selectedLang    varchar(25),\n"
                 + "    \n"
-                + "	constraint 		u_ue_pk PRIMARY KEY (userEmail)\n"
+                + "    constraint         u_ue_pk PRIMARY KEY (userEmail)\n"
                 + ");";
         createTable(userTbl);
     }

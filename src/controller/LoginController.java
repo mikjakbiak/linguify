@@ -1,11 +1,13 @@
 package controller;
 
 import database.ConnectDB;
+
 import encryption.PasswordUtils1;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 import user.UserModel;
+
 
 public class LoginController {
     
@@ -15,6 +17,7 @@ public class LoginController {
         Statement stmt = null;
         ResultSet rs = null;
         
+
         if(emailField.getText().equals("") || (pwField.getText().equals("")))
         {
             JOptionPane.showMessageDialog(null, "Please fill the form");
@@ -77,10 +80,12 @@ public class LoginController {
                 }
             }  
         }
+
     }
     
     private void userLog(JTextField emailField)
     {
+
         try
         {
             Connection con = ConnectDB.getConnection();
@@ -91,7 +96,9 @@ public class LoginController {
                 + " VALUES (?,?);";
    
             PreparedStatement pst = con.prepareStatement(query);
+
             pst.setString(1, emailField.getText().trim());
+
             pst.setString(2, date.toString());
             
             pst.executeUpdate();
