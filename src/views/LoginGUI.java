@@ -5,7 +5,8 @@
 package views;
 
 
-import controller.LoginController;
+import controller.*;
+
 import database.ConnectDB;
 import java.sql.*;
 import javax.swing.JOptionPane;

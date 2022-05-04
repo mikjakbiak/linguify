@@ -552,14 +552,32 @@ public class PopulateDB
                     String userFName = splitSt[2];
                     String userLName = splitSt[3];
                     char userType = splitSt[4].charAt(0);
-                    String selectedLang = splitSt[5];
+                    String encryptedKey = splitSt[5];
+                    String encryptedPw = splitSt[6];
+                    String selectedLang = splitSt[7];
                     
-                    String sqlString = "INSERT INTO User(userEmail, userPw, userFName, userLName, userType, selectedLang) VALUES \n"
-                            + "('" + userEmail + "','" + userPw + "','" + userFName + "','" + userLName + "','" + userType + "','" + selectedLang + "')";
+                    String sqlString = "INSERT INTO User(userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw,selectedLang) VALUES (?,NULL,?,?,?,?,?,?);";
+                   
                     con.setAutoCommit(false);
-                    stmt = con.createStatement();
-                    stmt.executeUpdate(sqlString);
-                    stmt.close();
+                    
+                     //String sqlString = "INSERT INTO User(userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw,selectedLang) VALUES \n" + "('" + userEmail + "','" + userPw + "','" + userFName + "','" + userLName + "','" + userType + "','" + selectedLang + "')";
+                    //stmt = con.createStatement();
+                    //stmt.executeUpdate(sqlString);
+                    //stmt.close();
+                                        //pst.setString(2, splitSt[1]);
+                    
+                    PreparedStatement pst = con.prepareStatement(sqlString);
+                    pst.setString(1, splitSt[0]);
+                    pst.setString(2, splitSt[2]);
+                    pst.setString(3, splitSt[3]);
+                    pst.setString(4, splitSt[4]);
+                    pst.setString(5, splitSt[5]);
+                    pst.setString(6, splitSt[6]);
+                    pst.setString(7, splitSt[7]);
+            
+                    pst.executeUpdate();
+                    pst.close();
+                    
                     con.commit();
                 } else {
                     System.out.println("duplicate record, with pk :" + splitSt[0]);
