@@ -148,7 +148,7 @@ public class Teacher extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void stprogressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stprogressBtnActionPerformed
-        new StudentProgressGUI(user, email).setVisible(true);
+        new StudentProgressGUI(user, email, date).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_stprogressBtnActionPerformed
 

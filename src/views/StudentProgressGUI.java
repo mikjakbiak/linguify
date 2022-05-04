@@ -24,6 +24,7 @@ public class StudentProgressGUI extends javax.swing.JFrame {
 
     private UserModel user;
     private String email;
+    private String date;
     /**
      * Creates new form StudentProgressGUI
      */
@@ -31,9 +32,10 @@ public class StudentProgressGUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    public StudentProgressGUI(UserModel user, String email) {
+    public StudentProgressGUI(UserModel user, String email, String date) {
         this.user = user;
         this.email = email;
+        this.date = date;
         initComponents();
     }
 
@@ -148,20 +150,20 @@ public class StudentProgressGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewProgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProgBtnActionPerformed
-        new StudentProgressController(chartPanel, email);
+        new StudentProgressController(chartPanel, email, date);
     }//GEN-LAST:event_viewProgBtnActionPerformed
 
     private void progBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_progBackBtnActionPerformed
             switch(user.getType())
             {
                 case "S":
-                    StudentPanel sp = new StudentPanel(user, email);
+                    StudentPanel sp = new StudentPanel(user,date, email);
                     this.setVisible(false);
                     sp.setVisible(true);
                     break;
                         
                 case "T":
-                    Teacher tp = new Teacher(user, email);
+                    Teacher tp = new Teacher(user,date, email);
                     this.setVisible(false);
                     tp.setVisible(true);
                     break;

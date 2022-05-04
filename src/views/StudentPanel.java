@@ -148,7 +148,7 @@ public class StudentPanel extends javax.swing.JFrame {
 
     private void viewProgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProgBtnActionPerformed
         // TODO add your handling code here:
-        new StudentProgressGUI(user, email).setVisible(true);
+        new StudentProgressGUI(user, email, date).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_viewProgBtnActionPerformed
 
