@@ -28,7 +28,7 @@ public class CreateTables {
 
     private static void createTable(String table) {
         Connection con = ConnectDB.getConnection();
-        
+
         Statement stmt = null;
         try {
             con.setAutoCommit(false);
@@ -61,14 +61,22 @@ public class CreateTables {
                 + "(\n"
                 + "	userEmail  	    VARCHAR(100),\n"
                 + "    \n"
+<<<<<<< Updated upstream
                 + "    userPw    w      VARCHAR(25) NOT NULL,\n"
                 + "	userFName	    VARCHAR(20) NOT NULL,\n"
                 + "	userLName	    VARCHAR(20) NOT NULL,\n"
+=======
+                + "    userPw          VARCHAR(50),\n"
+                + "	userFName	    VARCHAR(50) NOT NULL,\n"
+                + "	userLName	    VARCHAR(50) NOT NULL,\n"
+>>>>>>> Stashed changes
                 + "    userType        char(1)     NOT NULL,\n"
+                + "    encryptedKey    VARCHAR(100)NOT NULL,\n"
+                + "    encryptedPw     VARCHAR(100)NOT NULL,\n"
                 + "    selectedLang    varchar(25),\n"
                 + "    \n"
                 + "	constraint 		u_ue_pk PRIMARY KEY (userEmail)\n"
-                + ");";
+                + ");;";
         createTable(userTbl);
     }
 
@@ -208,6 +216,7 @@ public class CreateTables {
     }
 //+ "    \n"
 //                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n
+
     private static void userLearnHistoryTbl() {
         String userLearnHistoryTbl;
         userLearnHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLearnHistory\n"
