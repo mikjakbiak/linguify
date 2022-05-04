@@ -5,15 +5,19 @@
 package views;
 
 
-import controller.LoginController;
+import controller.*;
+
 import database.ConnectDB;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import user.UserModel;
 /**
  *
  * @author mathu
  */
 public class LoginGUI extends javax.swing.JFrame {
+
+    private UserModel userModel;
 
     /**
      * Creates new form LoginGUI
@@ -21,7 +25,16 @@ public class LoginGUI extends javax.swing.JFrame {
     public LoginGUI() {
         initComponents();
     }
+
+
+    public LoginGUI(UserModel userModel) 
+    {
+        this.userModel = userModel;
+        initComponents();
+    }
+
     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +50,7 @@ public class LoginGUI extends javax.swing.JFrame {
         emailField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         loginBtn = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         pwField = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
 
@@ -59,7 +72,12 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("jButton3");
+        backBtn.setText("Go Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo (2).png"))); // NOI18N
 
@@ -68,7 +86,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,11 +121,11 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pwField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,8 +143,13 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        new LoginController(evt, emailField, pwField);
+        LoginController loginController = new LoginController(evt, emailField, pwField);//, userModel
     }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        new WelcomePage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,9 +187,9 @@ public class LoginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JTextField emailField;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
