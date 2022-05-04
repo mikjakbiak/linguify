@@ -68,7 +68,7 @@ public class StudentPanel extends javax.swing.JFrame {
         logoutBtn.setText("Logout");
         logoutBtn.setSize(new java.awt.Dimension(90, 23));
 
-        jLabel2.setText("Time:");
+        jLabel2.setText("Time:" + date);
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo.png"))); // NOI18N
