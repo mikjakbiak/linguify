@@ -5,10 +5,7 @@ import encryption.PasswordUtils1;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
-/**
- *
- * @author mathu
- */
+
 public class LoginController {
     
     public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField)
@@ -104,3 +101,4 @@ public class LoginController {
         }
     }
 }
+
