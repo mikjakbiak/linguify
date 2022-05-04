@@ -41,7 +41,7 @@ public class LoginController {
                 {
                     String type = rs.getString("userType");
                     userModel.setType(type);
-                    System.out.println(userModel.getType());
+                    System.out.println("TYPE OF USER IS: " + userModel.getType());
                     rs.close();
                     stmt.close();
                     con.close();
@@ -50,16 +50,17 @@ public class LoginController {
                     
                     userModel.setEmail(emailField.getText());
                     String date = userLog(emailField);
+                    
                     switch(userModel.getType())
                     {
                         case "S":
-                            StudentPanel sp = new StudentPanel(date);
+                            StudentPanel sp = new StudentPanel(userModel, date, emailField.getText());
                             panel.setVisible(false);
                             sp.setVisible(true);
                             break;
                         
                         case "T":
-                            Teacher tp = new Teacher(date);
+                            Teacher tp = new Teacher(userModel,date, emailField.getText());
                             panel.setVisible(false);
                             tp.setVisible(true);
                             break;

@@ -4,6 +4,8 @@
  */
 package views;
 
+import user.UserModel;
+
 /**
  *
  * @author ash
@@ -11,6 +13,8 @@ package views;
 public class Teacher extends javax.swing.JFrame {
 
     private String date;
+    private UserModel user;
+    private String email;
 
     /**
      * Creates new form teacherPanel
@@ -19,10 +23,19 @@ public class Teacher extends javax.swing.JFrame {
         initComponents();
     }
     
-    public Teacher(String date) 
+    public Teacher(UserModel user, String date, String email) 
     {
-        initComponents();
+        this.user = user;
         this.date = date;
+        this.email = email;
+        initComponents();
+    }
+    
+    public Teacher(UserModel user, String email) 
+    {
+        this.user = user;
+        this.email = email;
+        initComponents();
     }
 
     /**
@@ -135,7 +148,7 @@ public class Teacher extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void stprogressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stprogressBtnActionPerformed
-          new StudentProgressGUI().setVisible(true);
+        new StudentProgressGUI(user, email).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_stprogressBtnActionPerformed
 

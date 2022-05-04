@@ -20,7 +20,7 @@ import user.UserModel;
  */
 public class StudentProgressController 
 {
-    public StudentProgressController(JPanel chartPanel)//, UserModel userModel
+    public StudentProgressController(JPanel chartPanel, String email)//, UserModel userModel
     {
         try
         {
