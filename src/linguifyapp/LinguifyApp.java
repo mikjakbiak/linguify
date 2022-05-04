@@ -4,6 +4,9 @@
  */
 package linguifyapp;
 
+import user.UserModel;
+import views.LoginGUI;
+
 /**
  *
  * @author mikjakbiak
@@ -14,7 +17,9 @@ public class LinguifyApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        UserModel userModel = new UserModel();
+        LoginGUI loginGUI = new LoginGUI(userModel);
+        loginGUI.setVisible(true);
     }
     
 }
