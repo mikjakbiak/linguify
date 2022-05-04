@@ -135,6 +135,9 @@
               <Dimension value="[180, 50]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lessonBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="logoutBtn">
           <Properties>

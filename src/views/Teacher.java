@@ -86,6 +86,11 @@ public class Teacher extends javax.swing.JFrame {
         lessonBtn.setBackground(new java.awt.Color(204, 204, 255));
         lessonBtn.setText("Go To Lesson");
         lessonBtn.setPreferredSize(new java.awt.Dimension(180, 50));
+        lessonBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lessonBtnActionPerformed(evt);
+            }
+        });
 
         logoutBtn.setBackground(new java.awt.Color(255, 102, 102));
         logoutBtn.setText("Log Out");
@@ -161,6 +166,12 @@ public class Teacher extends javax.swing.JFrame {
         new StudentProgressGUI(user, email, date).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_stprogressBtnActionPerformed
+
+    private void lessonBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessonBtnActionPerformed
+        // TODO add your handling code here:
+        new ChooseLanguageView(this, user).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lessonBtnActionPerformed
 
     /**
      * @param args the command line arguments
