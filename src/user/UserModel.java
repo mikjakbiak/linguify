@@ -5,37 +5,51 @@ package user;
  * @author mikjakbiak
  */
 public class UserModel {
-    String chosenLanguage;
+
+    //all the user information will be stored in the user model
     String userEmail;
     String userType;
-    //all the user information will be stored in the user model
-    
+    String chosenLanguage;
+    int chosenLanguageLevelId;
+    int chosenContextId;
+    int chosenSubContextId;
+
     //when the user logs in, user model will store data about the userd etails for the current login session
-    public void chooseLanguage(String language){
-        chosenLanguage = language;
-        //userEmail = email;
+    public void setEmail(String email) {
+        this.userEmail = email;
     }
-    
-    public void setType(String userType)
-    {
+    public void setLanguage(String language) {
+        chosenLanguage = language;
+    }
+    public void setType(String userType) {
         this.userType = userType;
     }
-    
-    public String getType()
-    {
-        return userType;
+    public void setLanguageLevelId(int languageLevel) {
+        chosenLanguageLevelId = languageLevel;
     }
-    
-    
-    public void setEmail(String email)
-    {
-        userEmail = email;
+    public void setContextId(int context) {
+        chosenContextId = context;
     }
-    
-    public String getEmail()
-    {
+    public void setSubContextId(int subContext) {
+        chosenSubContextId = subContext;
+    }
+
+    public String getEmail() {
         return userEmail;
     }
-    
-    
+    public String getType() {
+        return userType;
+    }
+    public String getLanguage() {
+        return chosenLanguage;
+    }
+    public int getLanguageLevel() {
+        return chosenLanguageLevelId;
+    }
+    public int getContext() {
+        return chosenContextId;
+    }
+    public int getSubContext() {
+        return chosenSubContextId;
+    }
 }
