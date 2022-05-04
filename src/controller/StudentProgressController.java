@@ -47,7 +47,7 @@ public class StudentProgressController
             dataset.setValue(8, "Level", "B1");
             dataset.setValue(5, "Leve", "B2");
             JFreeChart chart = ChartFactory.createBarChart("Student Progress",
-            "Salesman", "Profit", dataset, PlotOrientation.VERTICAL, false, true, false);
+            "Achieved", "Level code", dataset, PlotOrientation.VERTICAL, false, true, false);
 
             ChartPanel panel = new ChartPanel(chart);
             chartPanel.removeAll();

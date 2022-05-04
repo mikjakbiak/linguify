@@ -13,6 +13,14 @@ import views.Teacher;
 
 public class LoginController {
     
+    public LoginController(ActionEvent evt, JFrame panel, JTextField emailField)
+    {
+        if(!emailField.getText().equals(""))
+            JOptionPane.showMessageDialog(panel, "You have successfully sent a request to the admin to reset your password!");
+        else
+             JOptionPane.showMessageDialog(panel, "Enter a valid email!");
+    }
+    
     public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField, UserModel userModel, JFrame panel)
     {
         Connection con = ConnectDB.getConnection();
