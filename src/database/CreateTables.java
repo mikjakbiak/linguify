@@ -28,8 +28,10 @@ public class CreateTables {
 
     private static void createTable(String table) {
         Connection con = ConnectDB.getConnection();
+        
         Statement stmt = null;
         try {
+            con.setAutoCommit(false);
             stmt = con.createStatement();
             stmt.execute(table);
             con.commit();
@@ -59,7 +61,7 @@ public class CreateTables {
                 + "(\n"
                 + "	userEmail  	    VARCHAR(100),\n"
                 + "    \n"
-                + "    userPw          VARCHAR(25) NOT NULL,\n"
+                + "    userPw      VARCHAR(25) NOT NULL,\n"
                 + "	userFName	    VARCHAR(20) NOT NULL,\n"
                 + "	userLName	    VARCHAR(20) NOT NULL,\n"
                 + "    userType        char(1)     NOT NULL,\n"
@@ -195,18 +197,17 @@ public class CreateTables {
         String userLogHistoryTbl;//cancella il db e ritesta
         userLogHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLogHistory\n"
                 + "(\n"
-                + "    userLogId           INTEGER AUTO_INCREMENT,\n"
+                + "    userLogId           INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "    \n"
                 + "    userEmail           VARCHAR(100) NOT NULL,\n"
                 + "    \n"
-                + "    loginDateTime       DATETIME NOT NULL,\n"
-                + "    \n"
-                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n"
+                + "    loginDateTime       VARCHAR(50) NOT NULL,\n"
                 + "    constraint ue_ulh_fk  FOREIGN KEY(userEmail) references User(userEmail)\n"
                 + ");";
         createTable(userLogHistoryTbl);
     }
-
+//+ "    \n"
+//                + "    constraint ulid_ulh_pk PRIMARY KEY(userLogId),\n
     private static void userLearnHistoryTbl() {
         String userLearnHistoryTbl;
         userLearnHistoryTbl = "CREATE TABLE IF NOT EXISTS UserLearnHistory\n"
