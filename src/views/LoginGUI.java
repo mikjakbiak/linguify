@@ -65,6 +65,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
         jButton1.setText("Forgot your passwords?");
 
+        loginBtn.setBackground(new java.awt.Color(204, 255, 204));
         loginBtn.setText("Login");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
