@@ -4,12 +4,7 @@
  */
 package views;
 
-import database.ConnectDB;
 import user.UserModel;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *
@@ -1152,49 +1147,6 @@ public class ChooseTopic extends javax.swing.JFrame {
         this.setVisible(false);
         next.setVisible(true);
     }
-
-    private void fetchData() {
-        Connection con = ConnectDB.getConnection();
-        Statement stmt = null;
-        ResultSet rs;
-
-        try {
-            String sqlQuery = "SELECT * FROM Level" ;
-            PreparedStatement pst = con.prepareStatement(sqlQuery);
-            rs = pst.executeQuery();
-
-            ArrayList Languages = new ArrayList();
-
-            while (rs.next()) {
-                String languageName = rs.getString(1);
-                System.out.println(languageName);
-                Languages.add(languageName);
-            }
-
-            Iterator itr;
-            for (itr = Languages.iterator(); itr.hasNext(); ) {
-                String str = itr.next().toString();
-            }
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JPanel jPanelLvl3;

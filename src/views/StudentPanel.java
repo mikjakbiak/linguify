@@ -76,6 +76,11 @@ public class StudentPanel extends javax.swing.JFrame {
 
         chooseLangBtn.setBackground(new java.awt.Color(204, 204, 255));
         chooseLangBtn.setText("Choose Language");
+        chooseLangBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseLangBtnActionPerformed(evt);
+            }
+        });
 
         viewProgBtn.setBackground(new java.awt.Color(204, 204, 255));
         viewProgBtn.setText("View Progress");
@@ -151,6 +156,12 @@ public class StudentPanel extends javax.swing.JFrame {
         new StudentProgressGUI(user, email, date).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_viewProgBtnActionPerformed
+
+    private void chooseLangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseLangBtnActionPerformed
+        // TODO add your handling code here:
+        new ChooseLanguageView(this, user).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_chooseLangBtnActionPerformed
 
     /**
      * @param args the command line arguments
