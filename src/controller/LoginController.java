@@ -7,11 +7,13 @@ import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 import user.UserModel;
+import views.StudentPanel;
+import views.Teacher;
 
 
 public class LoginController {
     
-    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField)//, UserModel userModel
+    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField, UserModel userModel, JFrame panel)
     {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;
@@ -28,22 +30,40 @@ public class LoginController {
             {
                 stmt = con.createStatement();
                 //if user exist brings the salt and salt+hash
-                String sql = "SELECT encryptedKey, encryptedPw FROM User WHERE userEmail ='" + emailField.getText() +"'";
+                String sql = "SELECT encryptedKey, encryptedPw, userType FROM User WHERE userEmail ='" + emailField.getText() +"'";
                 rs = stmt.executeQuery(sql);
                 
                 boolean passwordMatch = PasswordUtils1.verifyUserPassword(pwField.getText(),rs.getString("encryptedPw"),rs.getString("encryptedKey"));
 
+
+
                 if (passwordMatch)
                 {
+                    String type = rs.getString("userType");
+                    userModel.setType(type);
+                    System.out.println(userModel.getType());
                     rs.close();
                     stmt.close();
                     con.close();
                     JOptionPane.showMessageDialog(null, "Login successful");
                     
                     
-                    //userModel.setEmail(emailField.getText());
-                    userLog(emailField);
-                    
+                    userModel.setEmail(emailField.getText());
+                    String date = userLog(emailField);
+                    switch(userModel.getType())
+                    {
+                        case "S":
+                            StudentPanel sp = new StudentPanel(date);
+                            panel.setVisible(false);
+                            sp.setVisible(true);
+                            break;
+                        
+                        case "T":
+                            Teacher tp = new Teacher(date);
+                            panel.setVisible(false);
+                            tp.setVisible(true);
+                            break;
+                    }
                     //store the email somewhere
                 }
                 else
@@ -83,14 +103,14 @@ public class LoginController {
 
     }
     
-    private void userLog(JTextField emailField)
+    private String userLog(JTextField emailField)
     {
-
+        java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
         try
         {
             Connection con = ConnectDB.getConnection();
             Statement stmt = null;
-            java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+            
             
             String query = "INSERT INTO UserLogHistory (userEmail, loginDateTime)"
                 + " VALUES (?,?);";
@@ -106,12 +126,13 @@ public class LoginController {
             
             pst.close();
             con.close();
-
+            return date.toString();
         }
         catch (SQLException ex)
         {
             System.out.println(ex);
         }
+        return date.toString();
     }
 }
 
