@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/controller/LoginController.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/controller/RegistrationController.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/nbproject/private/config.properties</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/StudentPanel.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/LoginGUI.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/controller/StudentProgressController.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/user/UserModel.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/images/backNew.png</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/linguifyapp/LinguifyApp.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/context.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/language.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/users.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/RegistrationGUI.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/ConnectDB.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/newPanelTemplate/panelTemplate.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/images/homeNew.png</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/dialogue.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/ChooseTopic.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/encryption/PasswordUtils1.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/ChooseLanguageView.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/trickyWord.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/nbproject/private/private.properties</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/CreateTables.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/nbproject/project.xml</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/images/Linguify_Logo.png</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/ChooseLanguageLevelView.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/level.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/ChooseSubTopicView.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/levelContext.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/.gitignore</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/images/Linguify_Logo.png.png</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/StudentProgressGUI.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/person.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/CreateDB.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/nbproject/project.properties</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/subContext.csv</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/ChoosePersonGUI.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/Teacher.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/PanelTemplate.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/database/PopulateDB.java</file>
+            <file>file:/C:/Users/mathu/OneDrive/Documenti/NetbeansProjects/Mathu/linguify/src/views/WelcomePage.java</file>
+        </group>
+    </open-files>
 </project-private>
