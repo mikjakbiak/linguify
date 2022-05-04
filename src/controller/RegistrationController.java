@@ -5,6 +5,7 @@
 package controller;
 
 import database.ConnectDB;
+import encryption.PasswordUtils1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -39,22 +40,33 @@ public class RegistrationController {
         } else {
             JOptionPane.showMessageDialog(null, "registration complete.");
         }
-
-        String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, selectedLang) VALUES(?, ?, ?, ?, ?, ?)";
+         String myPassword = Pw.getText(); //take the password from thee PasswordTextField();
         
+        // Generate Salt. The generated value can be stored in DB. 
+        String salt = PasswordUtils1.getSalt(30);
+        
+        // Protect user's password. The generated value can be stored in DB.
+        String mySecurePassword = PasswordUtils1.generateSecurePassword(myPassword, salt);
+        
+        // Print out protected password 
+        System.out.println("HASH + SALT = " + mySecurePassword);
+        System.out.println("SALT = " + salt);
+
+        String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw, selectedLang) VALUES(?, NULL, ?, ?, ?, ?, ?, ?)";
+
         PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1, Em.getText());
-            pst.setString(2, Pw.getText());
-            pst.setString(3, Fn.getText());
-            pst.setString(4, Ln.getText());
-            pst.setString(5, type);
-            pst.setString(6, "");
-            
-            pst.executeUpdate();
-            
-            pst.close();
-            //stmt.close();
-            con.close();
+        pst.setString(1, Em.getText());
+        pst.setString(2, Fn.getText());
+        pst.setString(3, Ln.getText());
+        pst.setString(4, type);
+        pst.setString(5, salt);
+        pst.setString(6,mySecurePassword );
+        pst.setString(7, "");
+
+        pst.executeUpdate();
+        pst.close();
+
+        con.commit();
     }
       catch (SQLException ex)
         {

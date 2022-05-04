@@ -16,7 +16,6 @@ public class LoginController {
         Statement stmt = null;
         ResultSet rs = null;
         
-
         if(emailField.getText().equals("") || (pwField.getText().equals("")))
         {
             JOptionPane.showMessageDialog(null, "Please fill the form");
@@ -38,7 +37,12 @@ public class LoginController {
                     stmt.close();
                     con.close();
                     JOptionPane.showMessageDialog(null, "Login successful");
+                    
+                    
+                    //userModel.setEmail(emailField.getText());
                     userLog(emailField);
+                    
+                    //store the email somewhere
                 }
                 else
                 {
@@ -56,7 +60,7 @@ public class LoginController {
                 }
 
             } catch (SQLException ex) {
-                //System.err.println("SQLException: " + ex.getMessage());
+                System.err.println("SQLException: " + ex.getMessage());
             } finally {
                 if (stmt != null) {
                     try {
@@ -74,8 +78,8 @@ public class LoginController {
                 }
             }  
         }
-
     }
+
     
     private void userLog(JTextField emailField)
     {
