@@ -11,7 +11,7 @@ import user.UserModel;
 
 public class LoginController {
     
-    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField, UserModel userModel)
+    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField)//, UserModel userModel
     {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;
@@ -41,7 +41,7 @@ public class LoginController {
                     JOptionPane.showMessageDialog(null, "Login successful");
                     
                     
-                    userModel.setEmail(emailField.getText());
+                    //userModel.setEmail(emailField.getText());
                     userLog(emailField);
                     
                     //store the email somewhere

@@ -5,6 +5,7 @@
 package controller;
 
 import database.ConnectDB;
+import encryption.PasswordUtils1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,70 +21,57 @@ import javax.swing.JTextField;
  * @author shefi
  */
 public class RegistrationController {
-    public RegistrationController(JTextField Fn, JTextField Ln, JTextField Em, JPasswordField Pw, ButtonGroup Bg, JRadioButton Srbtn, JRadioButton Trbtn) throws SQLException {
-    try {
-        
-    
-        Connection con = ConnectDB.getConnection();
-        //Statement stmt = null;
-        String type = "";
-        
 
-        if (Srbtn.isSelected())
-        type = "S";
-        else if (Trbtn.isSelected())
-        type = "T";
-        
-        if (Em.getText().length() == 0 || Pw.getText().length() == 0 || Fn.getText().length() == 0 || Ln.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Please make sure all fields are filled in.");
-        } else {
-            JOptionPane.showMessageDialog(null, "registration complete.");
-        }
+    public RegistrationController(JTextField Fn, JTextField Ln, JTextField Em, JPasswordField Pw, ButtonGroup Bg, JRadioButton Srbtn, JRadioButton Trbtn) throws SQLException 
+    {
+        try 
+        {
+            Connection con = ConnectDB.getConnection();
+            String type = "";
 
-        String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, selectedLang) VALUES(?, ?, ?, ?, ?, ?)";
-        
-        PreparedStatement pst = con.prepareStatement(query);
+            if (Srbtn.isSelected()) {
+                type = "S";
+            } else if (Trbtn.isSelected()) {
+                type = "T";
+            }
+
+            if (Em.getText().length() == 0 || Pw.getText().length() == 0 || Fn.getText().length() == 0 || Ln.getText().length() == 0) {
+                JOptionPane.showMessageDialog(null, "Please make sure all fields are filled in.");
+            } else {
+                JOptionPane.showMessageDialog(null, "registration complete.");
+            }
+
+            String myPassword = Pw.getText(); //take the password from thee PasswordTextField();
+
+            // Generate Salt. The generated value can be stored in DB. 
+            String salt = PasswordUtils1.getSalt(30);
+
+            // Protect user's password. The generated value can be stored in DB.
+            String mySecurePassword = PasswordUtils1.generateSecurePassword(myPassword, salt);
+
+            // Print out protected password 
+            System.out.println("HASH + SALT = " + mySecurePassword);
+            System.out.println("SALT = " + salt);
+
+            String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw, selectedLang) VALUES(?, NULL, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, Em.getText());
-            pst.setString(2, Pw.getText());
-            pst.setString(3, Fn.getText());
-            pst.setString(4, Ln.getText());
-            pst.setString(5, type);
-            pst.setString(6, "");
-            
+            pst.setString(2, Fn.getText());
+            pst.setString(3, Ln.getText());
+            pst.setString(4, type);
+            pst.setString(5, salt);
+            pst.setString(6, mySecurePassword);
+            pst.setString(7, "");
+
             pst.executeUpdate();
-            
             pst.close();
-            //stmt.close();
-            con.close();
-    }
-      catch (SQLException ex)
+
+            con.commit();
+        } 
+        catch (SQLException ex) 
         {
             System.out.println(ex);
-        }      
-        /*try {
-            con.setAutoCommit(false);
-            stmt = con.createStatement();
-            stmt.executeUpdate(sql);
-            stmt.close();
-            con.commit();
-
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }*/
-}
+        }
+    }
 }
