@@ -28,7 +28,6 @@ public class TeacherPanel extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        viewclassBtn = new javax.swing.JButton();
         stprogressBtn = new javax.swing.JButton();
         lessonBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
@@ -53,13 +52,14 @@ public class TeacherPanel extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        viewclassBtn.setBackground(new java.awt.Color(204, 204, 255));
-        viewclassBtn.setText("View Class");
-        viewclassBtn.setPreferredSize(new java.awt.Dimension(180, 50));
-
         stprogressBtn.setBackground(new java.awt.Color(204, 204, 255));
         stprogressBtn.setText("View Student Progress");
         stprogressBtn.setPreferredSize(new java.awt.Dimension(180, 50));
+        stprogressBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stprogressBtnActionPerformed(evt);
+            }
+        });
 
         lessonBtn.setBackground(new java.awt.Color(204, 204, 255));
         lessonBtn.setText("Go To Lesson");
@@ -85,8 +85,7 @@ public class TeacherPanel extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lessonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stprogressBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewclassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stprogressBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(152, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -96,15 +95,13 @@ public class TeacherPanel extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
-                .addComponent(viewclassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(75, 75, 75)
                 .addComponent(stprogressBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(42, 42, 42)
                 .addComponent(lessonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(66, 66, 66)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,6 +125,11 @@ public class TeacherPanel extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void stprogressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stprogressBtnActionPerformed
+          new StudentProgressGUI().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_stprogressBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +174,5 @@ public class TeacherPanel extends javax.swing.JFrame {
     private javax.swing.JButton lessonBtn;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JButton stprogressBtn;
-    private javax.swing.JButton viewclassBtn;
     // End of variables declaration//GEN-END:variables
 }

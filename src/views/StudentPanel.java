@@ -58,6 +58,11 @@ public class StudentPanel extends javax.swing.JFrame {
 
         viewProgBtn.setBackground(new java.awt.Color(204, 204, 255));
         viewProgBtn.setText("View Progress");
+        viewProgBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewProgBtnActionPerformed(evt);
+            }
+        });
 
         logoutBtn.setBackground(new java.awt.Color(255, 102, 102));
         logoutBtn.setText("Logout");
@@ -119,6 +124,12 @@ public class StudentPanel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewProgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProgBtnActionPerformed
+        // TODO add your handling code here:
+        new StudentProgressGUI().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_viewProgBtnActionPerformed
 
     /**
      * @param args the command line arguments

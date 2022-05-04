@@ -80,6 +80,11 @@ public class StudentProgressGUI extends javax.swing.JFrame {
 
         progBackBtn.setText("jButton3");
         progBackBtn.setActionCommand("backBtn");
+        progBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                progBackBtnActionPerformed(evt);
+            }
+        });
 
         progHomeBtn.setText("jButton4");
         progHomeBtn.setActionCommand("homeBtn");
@@ -136,6 +141,12 @@ public class StudentProgressGUI extends javax.swing.JFrame {
     private void viewProgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProgBtnActionPerformed
         new StudentProgressController(chartPanel);
     }//GEN-LAST:event_viewProgBtnActionPerformed
+
+    private void progBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_progBackBtnActionPerformed
+                        StudentPanel next = new StudentPanel();
+                this.setVisible(false);
+                next.setVisible(true);
+    }//GEN-LAST:event_progBackBtnActionPerformed
 
     /**
      * @param args the command line arguments
