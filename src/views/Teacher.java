@@ -10,11 +10,19 @@ package views;
  */
 public class Teacher extends javax.swing.JFrame {
 
+    private String date;
+
     /**
      * Creates new form teacherPanel
      */
     public Teacher() {
         initComponents();
+    }
+    
+    public Teacher(String date) 
+    {
+        initComponents();
+        this.date = date;
     }
 
     /**

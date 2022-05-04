@@ -10,11 +10,18 @@ package views;
  */
 public class StudentPanel extends javax.swing.JFrame {
 
+    private String date;
+
     /**
      * Creates new form Studentpanel
      */
     public StudentPanel() {
         initComponents();
+    }
+    
+    public StudentPanel(String date)
+    {
+        this.date = date;
     }
 
     /**
