@@ -74,6 +74,11 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
         goBackBtn.setBackground(new java.awt.Color(0, 0, 0));
         goBackBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
         goBackBtn.setActionCommand("backBtn");
+        goBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackBtnActionPerformed(evt);
+            }
+        });
 
         homeBtn.setBackground(new java.awt.Color(0, 0, 0));
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeNew.png"))); // NOI18N
@@ -147,16 +152,24 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
 
     private void bBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBtnActionPerformed
         dialogue dPanel = new dialogue(user, 2, subContID);
+        System.out.println(user.getEmail());
         this.setVisible(false);
         dPanel.setVisible(true);
     }//GEN-LAST:event_bBtnActionPerformed
 
     private void aBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aBtnActionPerformed
         dialogue dPanel = new dialogue(user, 1, subContID);
+        System.out.println(user.getEmail());
         this.setVisible(false);
         dPanel.setVisible(true);
         
     }//GEN-LAST:event_aBtnActionPerformed
+
+    private void goBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackBtnActionPerformed
+        new ChooseSubTopicView().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_goBackBtnActionPerformed
 
     /**
      * @param args the command line arguments
