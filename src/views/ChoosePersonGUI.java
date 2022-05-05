@@ -1,3 +1,6 @@
+/**
+ * This panel was made by Mathusan Nagalingam w1779171
+ */
 package views;
 
 import user.UserModel;
@@ -154,14 +157,12 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
 
     private void bBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBtnActionPerformed
         dialogue dPanel = new dialogue(this, user, 2, subContID);
-        System.out.println(user.getEmail());
         this.setVisible(false);
         dPanel.setVisible(true);
     }//GEN-LAST:event_bBtnActionPerformed
 
     private void aBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aBtnActionPerformed
         dialogue dPanel = new dialogue(this, user, 1, subContID);
-        System.out.println(user.getEmail());
         this.setVisible(false);
         dPanel.setVisible(true);
         
