@@ -1,13 +1,14 @@
 /**
- * This panel was made by Mathusan Nagalingam w1779171
+ * This panel was made by Mathusan Nagalingam w1779171 with also the help of Mikolaj
  */
 package views;
 
+import controller.ChoosePersonController;
 import user.UserModel;
 
 /**
  *
- * @author mathu
+ * @author mathu 
  */
 public class ChoosePersonGUI extends javax.swing.JFrame {
     private javax.swing.JFrame previousJFrame;
@@ -156,15 +157,13 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBtnActionPerformed
-        dialogue dPanel = new dialogue(this, user, 2, subContID);
-        this.setVisible(false);
-        dPanel.setVisible(true);
+        new ChoosePersonController(this, user, 2, subContID);
+
     }//GEN-LAST:event_bBtnActionPerformed
 
     private void aBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aBtnActionPerformed
-        dialogue dPanel = new dialogue(this, user, 1, subContID);
-        this.setVisible(false);
-        dPanel.setVisible(true);
+         new ChoosePersonController(this, user, 1, subContID);
+
         
     }//GEN-LAST:event_aBtnActionPerformed
 

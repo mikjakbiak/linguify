@@ -1,5 +1,5 @@
 /**
- * This class was made by Mathusan Nagalingam w1779171
+ * This class was made by Mathusan Nagalingam w1779171 with also the help of Mikolaj
  */
 package database;
 
