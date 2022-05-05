@@ -64,6 +64,7 @@ public class dialogue extends javax.swing.JFrame
                          
         }
         txtArea.append(convLines.get(count));
+        txtArea.setEditable(false);
     }
     
     
