@@ -159,7 +159,7 @@ public class StudentProgressGUI extends javax.swing.JFrame {
                     this.setVisible(false);
                     tp.setVisible(true);
                     break;
-        }
+            }
 
     }//GEN-LAST:event_progBackBtnActionPerformed
 

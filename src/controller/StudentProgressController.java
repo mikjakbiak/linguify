@@ -12,6 +12,8 @@ import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.data.category.*;
 import user.UserModel;
+import views.StudentPanel;
+import views.Teacher;
 
 /**
  *
@@ -21,6 +23,7 @@ public class StudentProgressController
 {
     private String date;
     private String email;
+    
     
     public StudentProgressController(JPanel chartPanel, String email, String date)//, UserModel userModel
     {
