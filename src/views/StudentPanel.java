@@ -92,7 +92,11 @@ public class StudentPanel extends javax.swing.JFrame {
 
         logoutBtn.setBackground(new java.awt.Color(255, 102, 102));
         logoutBtn.setText("Logout");
-        logoutBtn.setSize(new java.awt.Dimension(90, 23));
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Time:" + date);
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -162,6 +166,12 @@ public class StudentPanel extends javax.swing.JFrame {
         new ChooseLanguageView(this, user).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_chooseLangBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        user = null;
+        new WelcomePage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments

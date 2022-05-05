@@ -71,7 +71,7 @@ public class StudentProgressGUI extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(153, 133, 133));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         progBackBtn.setBackground(new java.awt.Color(0, 0, 0));
         progBackBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N

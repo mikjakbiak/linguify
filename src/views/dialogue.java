@@ -5,6 +5,11 @@
 package views;
 
 import controller.dialogueController;
+import database.ConnectDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import user.UserModel;
 
 import javax.swing.*;
@@ -41,9 +46,7 @@ public class dialogue extends javax.swing.JFrame
     public dialogue(javax.swing.JFrame previousJFrame, UserModel user, int personID, int subContextID) 
     {
         this.previousJFrame = previousJFrame;
-        this.subContID = subContID;
         this.user = user;
-        System.out.println("subContID: " + subContID);
         dialogueController dController = new dialogueController();
         this.convLines = dController.fetchData(personID, user);
         initComponents();
@@ -300,6 +303,41 @@ public class dialogue extends javax.swing.JFrame
     }//GEN-LAST:event_scriptNxtActionPerformed
 
     private void scriptFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptFinActionPerformed
+        
+        try
+        {
+            Connection con = ConnectDB.getConnection();
+            Statement stmt = null; 
+            ResultSet rs = null;
+            stmt = con.createStatement();
+            String sql = "SELECT levelContextId FROM SubContext WHERE subContID =" + user.getSubContext();
+            System.out.println(sql);
+            rs = stmt.executeQuery(sql);
+            int levelContextId = rs.getInt("levelContextId");
+            System.out.println(levelContextId);
+            java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+            
+            String SqlQuery = "INSERT INTO UserLearnHistory (levelContextId, subContextId, userEmail, courseProgress, languageName, date_time) VALUES(?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(SqlQuery);
+
+            pst.setInt(1, levelContextId);
+            pst.setInt(2, user.getSubContext());
+            pst.setString(3, user.getEmail());
+            pst.setString(4, "C");
+            pst.setString(5, user.getLanguage());
+            pst.setString(6, date.toString());
+            
+            pst.executeUpdate();
+            System.out.println("log history test " + date);
+            
+            stmt.close();
+            pst.close();
+            con.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
         ChooseTopic next= new ChooseTopic(this,user);
         this.setVisible(false);
         next.setVisible(true);

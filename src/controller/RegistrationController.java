@@ -52,7 +52,7 @@ public class RegistrationController {
                 String mySecurePassword = PasswordUtils1.generateSecurePassword(myPassword, salt);
 
                 String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw, selectedLang) VALUES(?, NULL, ?, ?, ?, ?, ?, ?)";
-
+                    
                 PreparedStatement pst = con.prepareStatement(query);
                 pst.setString(1, Em.getText());
                 pst.setString(2, Fn.getText());
@@ -69,6 +69,7 @@ public class RegistrationController {
                 
                 pst.executeUpdate();
                 pst.close();
+                             
                 switch(type)
                 {
                     case "S":
