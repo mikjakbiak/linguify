@@ -4,8 +4,8 @@
  */
 package views;
 import controller.RegistrationController;
-import java.sql.*;
-import database.ConnectDB;
+
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -13,11 +13,17 @@ import java.util.logging.Logger;
  * @author shefi
  */
 public class RegistrationGUI extends javax.swing.JFrame {
+    private javax.swing.JFrame previousJFrame;
 
     /**
      * Creates new form RegistrationGUI
      */
     public RegistrationGUI() {
+        initComponents();
+    }
+
+    public RegistrationGUI(javax.swing.JFrame previousJFrame) {
+        this.previousJFrame = previousJFrame;
         initComponents();
     }
 
@@ -251,9 +257,10 @@ public class RegistrationGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_PF2ActionPerformed
 
     private void BbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BbtnActionPerformed
-        new WelcomePage().setVisible(true);
-
-        this.dispose();
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
     }//GEN-LAST:event_BbtnActionPerformed
 
     /**

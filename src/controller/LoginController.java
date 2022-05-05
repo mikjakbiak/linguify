@@ -4,14 +4,14 @@
 package controller;
 
 import database.ConnectDB;
-
 import encryption.PasswordUtils1;
-import java.awt.event.*;
-import java.sql.*;
-import javax.swing.*;
 import user.UserModel;
 import views.StudentPanel;
 import views.Teacher;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.sql.*;
 
 
 public class LoginController {
@@ -24,7 +24,7 @@ public class LoginController {
              JOptionPane.showMessageDialog(panel, "Enter a valid email!");
     }
     
-    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField, UserModel userModel, JFrame panel)
+    public LoginController(ActionEvent evt, JTextField emailField, JPasswordField pwField, JFrame panel)
     {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;
@@ -48,6 +48,7 @@ public class LoginController {
 
 
 
+                UserModel userModel = new UserModel();
                 if (passwordMatch)
                 {
                     String type = rs.getString("userType");

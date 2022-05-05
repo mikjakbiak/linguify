@@ -97,12 +97,12 @@ public class WelcomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new RegistrationGUI().setVisible(true);
+        new RegistrationGUI(this).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new LoginGUI().setVisible(true);
+        new LoginGUI(this).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -306,8 +306,6 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println(previousJFrame);
-        // TODO add your handling code here:
         if (previousJFrame != null) {
             this.setVisible(false);
             previousJFrame.setVisible(true);

@@ -3,20 +3,14 @@
  */
 package views;
 
-import controller.*;
-import database.ConnectDB;
-import user.UserModel;
-
-import javax.swing.*;
-import java.sql.*;
-import javax.swing.JOptionPane;
+import controller.LoginController;
 import user.UserModel;
 /**
  *
  * @author mathu
  */
 public class LoginGUI extends javax.swing.JFrame {
-    private UserModel userModel;
+    private javax.swing.JFrame previousJFrame;
 
     /**
      * Creates new form LoginGUI
@@ -25,8 +19,8 @@ public class LoginGUI extends javax.swing.JFrame {
         initComponents();
     }
 
-    public LoginGUI(UserModel userModel) {
-        this.userModel = userModel;
+    public LoginGUI(javax.swing.JFrame previousJFrame) {
+        this.previousJFrame = previousJFrame;
         initComponents();
     }
 
@@ -145,12 +139,14 @@ public class LoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        LoginController loginController = new LoginController(evt, emailField, pwField, userModel, this);//, userModel
+        LoginController loginController = new LoginController(evt, emailField, pwField, this);//, userModel
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        new WelcomePage().setVisible(true);
-        this.dispose();
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void pwResBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwResBtnActionPerformed
