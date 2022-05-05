@@ -24,7 +24,15 @@ public class StudentProgressController
     private String date;
     private String email;
     
-    
+    /**
+     * The purpsoe of this controller constructor
+     * 
+     * is to display the barchart to the user by retrieving from the database
+     * 
+     * @param chartPanel
+     * @param email
+     * @param date 
+     */
     public StudentProgressController(JPanel chartPanel, String email, String date)//, UserModel userModel
     {
         try
@@ -32,7 +40,7 @@ public class StudentProgressController
             Connection con = ConnectDB.getConnection();
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
-            String sqlQuery = "SELECT levelContextId FROM UserLearnHistory WHERE userEmail =?";
+            String sqlQuery = "SELECT levelContextId FROM UserLearnHistory WHERE userEmail =?";  //make sql query
             PreparedStatement pst = con.prepareStatement(sqlQuery);
             pst.setString(1, email);
             ResultSet rs = pst.executeQuery();

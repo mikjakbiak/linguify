@@ -53,7 +53,8 @@ public class RegistrationController {
                 // Protect user's password. The generated value can be stored in DB.
                 String mySecurePassword = PasswordUtils1.generateSecurePassword(myPassword, salt);
 
-                String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw, selectedLang) VALUES(?, NULL, ?, ?, ?, ?, ?, ?)";
+                String query = "INSERT INTO User (userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw, selectedLang) "
+                        + "VALUES(?, NULL, ?, ?, ?, ?, ?, ?)";
 
                 PreparedStatement pst = con.prepareStatement(query);
                 pst.setString(1, Em.getText());

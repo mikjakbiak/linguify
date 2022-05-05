@@ -30,7 +30,7 @@ public class LoginController {
         Statement stmt = null;
         ResultSet rs = null;
         
-
+        //if the user doesnt enter an email or password then
         if(emailField.getText().equals("") || (pwField.getText().equals("")))
         {
             JOptionPane.showMessageDialog(null, "Please fill the form");
@@ -40,29 +40,32 @@ public class LoginController {
             try 
             {
                 stmt = con.createStatement();
-                //if user exist brings the salt and salt+hash
+                
+                //create sql query
                 String sql = "SELECT encryptedKey, encryptedPw, userType FROM User WHERE userEmail ='" + emailField.getText() +"'";
                 rs = stmt.executeQuery(sql);
                 
+                
+                //check if password matches
                 boolean passwordMatch = PasswordUtils1.verifyUserPassword(pwField.getText(),rs.getString("encryptedPw"),rs.getString("encryptedKey"));
 
-
-
-                if (passwordMatch)
+                if (passwordMatch)//if password matches
                 {
                     String type = rs.getString("userType");
                     userModel.setType(type);
                     System.out.println("TYPE OF USER IS: " + userModel.getType());
+                    
+                    //close connections statements etc.
                     rs.close();
                     stmt.close();
                     con.close();
                     JOptionPane.showMessageDialog(null, "Login successful");
                     
                     
-                    userModel.setEmail(emailField.getText());
+                    userModel.setEmail(emailField.getText());//set email
                     String date = userLog(emailField);
                     
-                    switch(userModel.getType())
+                    switch(userModel.getType())//if student open student panel, else if teacher open teacher panel
                     {
                         case "S":
                             StudentPanel sp = new StudentPanel(userModel, date, emailField.getText());
@@ -80,13 +83,13 @@ public class LoginController {
                 }
                 else
                 {
-                    if(emailField.getText().equals("") || (pwField.getText().equals("")))
+                    if(emailField.getText().equals("") || (pwField.getText().equals("")))//display fill form
                     {
                         JOptionPane.showMessageDialog(null, "Please fill the form");
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Invalid Password");
+                        JOptionPane.showMessageDialog(null, "Invalid Password");//display invalid pw
                     }
                     rs.close();
                     stmt.close();
@@ -114,7 +117,11 @@ public class LoginController {
         }
 
     }
-    
+    /**
+     * The purpose of this function is to store the data into the user Log history table in the db
+     * @param emailField
+     * @return 
+     */
     private String userLog(JTextField emailField)
     {
         java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());

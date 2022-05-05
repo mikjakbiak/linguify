@@ -36,10 +36,8 @@ public class PopulateDB
             ArrayList IdChecker = new ArrayList();
             int count = 0;
             while ((strLine = br.readLine()) != null) {
-                //System.out.println("list"+list);
                 list.add(strLine);
                 count++;
-                //System.out.println(count);
             }
             
             Iterator itr;
