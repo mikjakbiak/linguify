@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package views;
 
 import user.UserModel;
 
 /**
  *
- * @author mikjakbiak
+ * @author mikjakbiak w1782957
  */
 public class ChooseLanguageLevelView extends javax.swing.JFrame {
     javax.swing.JFrame previousJFrame;
@@ -296,7 +292,6 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void levelB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelB2ActionPerformed
-        // TODO add your handling code here:
         userModel.setLanguageLevelId(4);
         displayNextJFrame();
     }//GEN-LAST:event_levelB2ActionPerformed
@@ -316,19 +311,16 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
     } 
     
     private void levelA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelA2ActionPerformed
-        // TODO add your handling code here:
         userModel.setLanguageLevelId(2);
         displayNextJFrame();
     }//GEN-LAST:event_levelA2ActionPerformed
 
     private void levelB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelB1ActionPerformed
-        // TODO add your handling code here:
         userModel.setLanguageLevelId(3);
         displayNextJFrame();
     }//GEN-LAST:event_levelB1ActionPerformed
 
     private void levelA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelA1ActionPerformed
-        // TODO add your handling code here:
         userModel.setLanguageLevelId(1);
         displayNextJFrame();
     }//GEN-LAST:event_levelA1ActionPerformed
@@ -337,30 +329,6 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChooseLanguageLevelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChooseLanguageLevelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChooseLanguageLevelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChooseLanguageLevelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
