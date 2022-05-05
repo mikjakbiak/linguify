@@ -1,9 +1,11 @@
+/**
+ * This class was made by Mathusan Nagalingam w1779171
+ */
 package database;
 
 import java.sql.*;
 
-public class ConnectDB 
-{
+public class ConnectDB {
         public static Connection getConnection() 
     {
         try 

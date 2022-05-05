@@ -1,2 +1,7 @@
-/build/
-/nbproject/private/
+target/
+build/
+nbproject/private/
+.DS_Store
+dist/
+nbproject/private/private.xml
+linguify.db
