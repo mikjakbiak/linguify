@@ -5,30 +5,77 @@
 package controller;
 
 import database.ConnectDB;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
+import java.util.ArrayList;
+import java.sql.*;
 import user.UserModel;
 
 /**
  *
- * @author NURCHI
+ * @author NUR
  */
 public class dialogueController {
     
-    public dialogueController(JTextArea scriptLines,JButton scriptBck, JButton scriptNxt, JButton scriptFin, JButton keywordBtn, UserModel userModel){
-    
+    public ArrayList<String> fetchData(int personId, UserModel userModel) {
         Connection con = ConnectDB.getConnection();
         Statement stmt = null;  // should be passed on from the previous 
         ResultSet rs = null;
-        
-       
-        String sqlQury = "SELECT * FROM conversation WHERE context ='" ;
+        ArrayList<String> convLines =  new ArrayList<>();
     
-    
+         try 
+            {
+                stmt = con.createStatement();
+                //if user exist brings the salt and salt+hash
+                String sql = "SELECT * FROM Conversation WHERE personID ='" + personId +"'AND subContID ='" + userModel.getSubContext() +"'";
+                rs = stmt.executeQuery(sql);
+                
+                
+                while (rs.next()){
+                    String convLine = rs.getString("convDesc");
+                    convLines.add(convLine);
+                    
+                }
+                
+            } catch (SQLException ex) {
+                System.err.println("SQLException: " + ex.getMessage());
+            } finally {
+                if (stmt != null) {
+                    try {
+                        stmt.close();
+                    } catch (SQLException e) {
+                        System.err.println("SQLException: " + e.getMessage());
+                    }
+                }
+                if (con != null) {
+                    try {
+                        con.close();
+                    } catch (SQLException e) {
+                        System.err.println("SQLException: " + e.getMessage());
+                    }
+                }
+         }        
+        return convLines;
     }
 }
     
+    
+        
+    
+        
+    
+ //   public dialogueController( UserModel userModel){
+    
+//        Connection con = ConnectDB.getConnection();
+//        Statement stmt = null;  // should be passed on from the previous 
+//        ResultSet rs = null;
+//        
+       
+        //String sqlQury = "SELECT * FROM Conversation WHERE personID ='" +  ;
+    
+    
+//WHERE personID = 1 AND subContID = 1
+  //  }
+    
+    
+    
+
 
