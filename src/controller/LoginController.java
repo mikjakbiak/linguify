@@ -67,12 +67,14 @@ public class LoginController {
                     {
                         case "S":
                             StudentPanel sp = new StudentPanel(userModel, date, emailField.getText());
+                            userModel.setHubPanel(sp);
                             panel.setVisible(false);
                             sp.setVisible(true);
                             break;
                         
                         case "T":
                             Teacher tp = new Teacher(userModel,date, emailField.getText());
+                            userModel.setHubPanel(tp);
                             panel.setVisible(false);
                             tp.setVisible(true);
                             break;

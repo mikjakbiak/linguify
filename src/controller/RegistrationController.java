@@ -6,19 +6,14 @@ package controller;
 
 import database.ConnectDB;
 import encryption.PasswordUtils1;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.ButtonGroup;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import user.UserModel;
 import views.StudentPanel;
 import views.Teacher;
+
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -78,12 +73,14 @@ public class RegistrationController {
                 {
                     case "S":
                         StudentPanel sp = new StudentPanel(user, date.toString(),user.getEmail());
+                        user.setHubPanel(sp);
                         panel.setVisible(false);
                         sp.setVisible(true);
                         break;
 
                     case "T":
                         Teacher tp = new Teacher(user,date.toString(), user.getEmail());
+                        user.setHubPanel(tp);
                         panel.setVisible(false);
                         tp.setVisible(true);
                         break;

@@ -13,7 +13,8 @@ public class UserModel {
     int chosenLanguageLevelId;
     int chosenContextId;
     int chosenSubContextId;
-
+    javax.swing.JFrame hubPanel;
+    
     //when the user logs in, user model will store data about the userd etails for the current login session
     public void setEmail(String email) {
         this.userEmail = email;
@@ -33,6 +34,9 @@ public class UserModel {
     public void setSubContextId(int subContext) {
         chosenSubContextId = subContext;
     }
+    public void setHubPanel(javax.swing.JFrame hubPanel) {
+        this.hubPanel = hubPanel;
+    }
 
     public String getEmail() {
         return userEmail;
@@ -51,5 +55,8 @@ public class UserModel {
     }
     public int getSubContext() {
         return chosenSubContextId;
+    }
+    public javax.swing.JFrame getHubPanel() {
+        return hubPanel;
     }
 }

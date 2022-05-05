@@ -874,7 +874,9 @@ public class ChooseTopic extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        // TODO add your handling code here:
+        javax.swing.JFrame hub = userModel.getHubPanel();
+        this.setVisible(false);
+        hub.setVisible(true);
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void jButtonL2N11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N11ActionPerformed

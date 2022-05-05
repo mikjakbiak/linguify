@@ -302,7 +302,9 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
     }//GEN-LAST:event_levelB2ActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        // TODO add your handling code here:
+        javax.swing.JFrame hub = userModel.getHubPanel();
+        this.setVisible(false);
+        hub.setVisible(true);
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {

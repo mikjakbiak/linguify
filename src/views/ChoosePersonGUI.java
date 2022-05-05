@@ -89,6 +89,11 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
         homeBtn.setBackground(new java.awt.Color(0, 0, 0));
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeNew.png"))); // NOI18N
         homeBtn.setActionCommand("homeBtn");
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -177,6 +182,12 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
                 this.setVisible(false);
                 next.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        javax.swing.JFrame hub = user.getHubPanel();
+        this.setVisible(false);
+        hub.setVisible(true);
+    }//GEN-LAST:event_homeBtnActionPerformed
 
     /**
      * @param args the command line arguments

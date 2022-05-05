@@ -5,9 +5,10 @@
 package views;
 
 import controller.dialogueController;
-import java.util.ArrayList;
-import javax.swing.JFrame;
 import user.UserModel;
+
+import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -305,8 +306,9 @@ public class dialogue extends javax.swing.JFrame
     }//GEN-LAST:event_scriptFinActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-               
+        javax.swing.JFrame hub = user.getHubPanel();
+        this.setVisible(false);
+        hub.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
