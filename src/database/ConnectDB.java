@@ -2,8 +2,9 @@ package database;
 
 import java.sql.*;
 
-public class ConnectDB {
-        public static Connection getConnection() 
+public class ConnectDB 
+{
+    public static Connection getConnection() 
     {
         try 
         {

@@ -526,7 +526,7 @@ public class PopulateDB
         Statement stmt = null;
         try 
         {
-            FileInputStream fstream = new FileInputStream("src/database/users.csv");
+            FileInputStream fstream = new FileInputStream("src/database/usersAcc.csv");
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine;
@@ -559,7 +559,13 @@ public class PopulateDB
                     String sqlString = "INSERT INTO User(userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw,selectedLang) VALUES (?,NULL,?,?,?,?,?,?);";
                    
                     con.setAutoCommit(false);
-                                     
+                    
+                     //String sqlString = "INSERT INTO User(userEmail, userPw, userFName, userLName, userType, encryptedKey, encryptedPw,selectedLang) VALUES \n" + "('" + userEmail + "','" + userPw + "','" + userFName + "','" + userLName + "','" + userType + "','" + selectedLang + "')";
+                    //stmt = con.createStatement();
+                    //stmt.executeUpdate(sqlString);
+                    //stmt.close();
+                                        //pst.setString(2, splitSt[1]);
+                    
                     PreparedStatement pst = con.prepareStatement(sqlString);
                     pst.setString(1, splitSt[0]);
                     pst.setString(2, splitSt[2]);
