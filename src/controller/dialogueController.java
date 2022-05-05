@@ -56,26 +56,4 @@ public class dialogueController {
         return convLines;
     }
 }
-    
-    
-        
-    
-        
-    
- //   public dialogueController( UserModel userModel){
-    
-//        Connection con = ConnectDB.getConnection();
-//        Statement stmt = null;  // should be passed on from the previous 
-//        ResultSet rs = null;
-//        
-       
-        //String sqlQury = "SELECT * FROM Conversation WHERE personID ='" +  ;
-    
-    
-//WHERE personID = 1 AND subContID = 1
-  //  }
-    
-    
-    
-
-
+  
