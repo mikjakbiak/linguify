@@ -13,6 +13,15 @@ import views.dialogue;
  */
 public class ChoosePersonController {
     
+    public ChoosePersonController(JFrame panel, JFrame previousJFrame)
+    {
+        if (previousJFrame != null) 
+        {
+            panel.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
+    }
+    
     public ChoosePersonController(JFrame panel, UserModel user, int personID, int subContextID)
     {
         dialogue dPanel = new dialogue(panel, user, personID, subContextID);

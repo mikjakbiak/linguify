@@ -168,10 +168,8 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_aBtnActionPerformed
 
     private void goBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackBtnActionPerformed
-        if (previousJFrame != null) {
-            this.setVisible(false);
-            previousJFrame.setVisible(true);
-        }
+         new ChoosePersonController(this, previousJFrame);
+         
     }//GEN-LAST:event_goBackBtnActionPerformed
 
     /**
