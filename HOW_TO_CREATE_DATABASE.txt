@@ -1,0 +1,13 @@
+Run these files in the order found below
+
+First
+
+src/database/ConnectDB.java
+
+Then
+
+src/database/CreateTables.java
+
+And finally
+
+src/database/PopulateDB.java
