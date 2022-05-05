@@ -9,7 +9,7 @@ import java.util.*;
 
 public class PopulateDB 
 {
-    public static void main(String[] args) 
+    public PopulateDB()
     {
         insertContext();
         insertConversation();
@@ -19,8 +19,9 @@ public class PopulateDB
         insertPerson();
         insertSubTopic();
         insertTrickyWord();
-        insertUser();
-    }    
+        insertUser();        
+    }
+
     
     private static void insertContext()
     {
@@ -67,7 +68,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -129,7 +130,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -190,7 +191,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+           // System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -251,7 +252,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+           // System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -314,7 +315,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -375,7 +376,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -439,7 +440,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -503,7 +504,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {
@@ -580,7 +581,7 @@ public class PopulateDB
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }finally {
             if (stmt != null) {
                 try {

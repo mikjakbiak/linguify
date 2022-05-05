@@ -58,7 +58,7 @@ public class StudentProgressController
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Please study a topic!");
         }
        
     }

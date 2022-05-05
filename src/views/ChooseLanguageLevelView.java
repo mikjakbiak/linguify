@@ -219,6 +219,11 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         backBtn.setBackground(new java.awt.Color(51, 51, 51));
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
         backBtn.setActionCommand("backBtn");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -302,13 +307,6 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         hub.setVisible(true);
     }//GEN-LAST:event_homeBtnActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        if (previousJFrame != null) {
-            this.setVisible(false);
-            previousJFrame.setVisible(true);
-        }
-        
-    } 
     
     private void levelA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelA2ActionPerformed
         userModel.setLanguageLevelId(2);
@@ -324,6 +322,13 @@ public class ChooseLanguageLevelView extends javax.swing.JFrame {
         userModel.setLanguageLevelId(1);
         displayNextJFrame();
     }//GEN-LAST:event_levelA1ActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+                if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
