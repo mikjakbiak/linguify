@@ -1,5 +1,6 @@
 /**
- * This panel was made by Mathusan Nagalingam w1779171 with also the help of Mikolaj
+ * This panel was made by Mathusan Nagalingam w1779171 
+ * with also the help of Mikolaj and Nur
  */
 package views;
 
@@ -73,7 +74,7 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(153, 133, 133));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         goBackBtn.setBackground(new java.awt.Color(0, 0, 0));
