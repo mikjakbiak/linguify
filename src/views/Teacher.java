@@ -159,7 +159,9 @@ public class Teacher extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
-        // TODO add your handling code here:
+        user = null;
+        new WelcomePage().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void stprogressBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stprogressBtnActionPerformed
