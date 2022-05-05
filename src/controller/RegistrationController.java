@@ -45,9 +45,6 @@ public class RegistrationController {
             {
                 JOptionPane.showMessageDialog(null, "registration complete.");
                 
-                
-                
-                
                 String myPassword = Pw.getText(); //take the password from thee PasswordTextField();
 
                 // Generate Salt. The generated value can be stored in DB. 

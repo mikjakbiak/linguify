@@ -41,9 +41,6 @@ public class StudentProgressController
             
             int userProgress = rs.getInt("levelContextId");
             
-           
-                    
-
             dataset.setValue(userProgress, "Level", "A1");
             dataset.setValue(7, "Level", "A2");
             dataset.setValue(8, "Level", "B1");
@@ -56,8 +53,7 @@ public class StudentProgressController
             chartPanel.add(panel, BorderLayout.CENTER);
             chartPanel.validate();
             rs.close();
-            con.close();
-            
+            con.close(); 
         }
         catch(Exception e)
         {

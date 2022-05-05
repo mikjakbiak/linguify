@@ -80,47 +80,4 @@ public class PasswordUtils1
         
         return returnValue;
     }
-    
-    
-    public static void main(String [] args)
-    {
-        
-//        String slt = getSalt(50);
-//        System.out.println("");
-//        System.out.println("Salg lenght: " + slt.length());
-//        System.out.println("");
-//        
-//        String pwd = generateSecurePassword("123", slt);
-//        System.out.println("");
-//        System.out.println("pw length: " + pwd.length());
-//        System.out.println("");
-//        System.out.println("pwd salted: " + pwd);
-//        
-//        System.out.println("");
-//        
-//        
-//        
-//        System.out.println("--- Check password supplied against one created at start ---");
-//        System.out.println("quando logghi prende la pw, e controlla la vecchia pwd+salt, con la nuova+salt fatto in passato");
-//        boolean pwMatch = verifyUserPassword("123", pwd, slt);
-//        System.out.println("");
-//        System.out.println("pssMatch: " + pwMatch);
-//        System.out.println("");
-        
-        String myPassword = "123";
-        
-        // Generate Salt. The generated value can be stored in DB. 
-        String salt = PasswordUtils1.getSalt(30);
-        
-        // Protect user's password. The generated value can be stored in DB.
-        String mySecurePassword = PasswordUtils1.generateSecurePassword(myPassword, salt);
-        
-        // Print out protected password 
-        System.out.println("My secure password = " + mySecurePassword);
-        System.out.println("Salt value = " + salt);
-        
-        
-        
-
-    }
 }
