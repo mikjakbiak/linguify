@@ -172,6 +172,12 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
          
     }//GEN-LAST:event_goBackBtnActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dialogue next = new dialogue();
+                this.setVisible(false);
+                next.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
