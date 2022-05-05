@@ -23,7 +23,7 @@ import user.UserModel;
  */
 public class RegistrationController {
     
-    public RegistrationController(JTextField Fn, JTextField Ln, JTextField Em, JPasswordField Pw, ButtonGroup Bg, JRadioButton Srbtn, JRadioButton Trbtn, UserModel user) throws SQLException 
+    public RegistrationController(JTextField Fn, JTextField Ln, JTextField Em, JPasswordField Pw, ButtonGroup Bg, JRadioButton Srbtn, JRadioButton Trbtn) throws SQLException 
     {
         try 
         {
