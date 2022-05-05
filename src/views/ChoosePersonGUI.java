@@ -24,9 +24,8 @@ public class ChoosePersonGUI extends javax.swing.JFrame {
     
     public ChoosePersonGUI(javax.swing.JFrame previousJFrame, int subContID, UserModel user) {
         this.previousJFrame = previousJFrame;
-        this.subContID = subContID;
         this.user = user;
-        System.out.println("subContID: " + subContID);
+        System.out.println("TEST: " + user.getSubContext());
         initComponents();
     }
 

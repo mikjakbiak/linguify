@@ -69,12 +69,7 @@ public class RegistrationController {
                 
                 pst.executeUpdate();
                 pst.close();
-                
-                String SqlQuery = "INSERT INTO UserLearnHistory (userLearnHistID,levelContextId, subContextId, userEmail, courseProgress, languageName, date_time) VALUES(1,1,39,'" + Em.getText() + "','C','Spanish',1651610751103)";
-                PreparedStatement PST = con.prepareStatement(SqlQuery);
-                PST.executeUpdate();
-                pst.close();
-                
+                             
                 switch(type)
                 {
                     case "S":
