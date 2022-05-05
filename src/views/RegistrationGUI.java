@@ -116,7 +116,7 @@ public class RegistrationGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo (2).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Linguify_Logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jLabel2.setToolTipText("");
 
@@ -234,11 +234,11 @@ public class RegistrationGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_TrbtnActionPerformed
 
     private void RbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbtnActionPerformed
-//        try {
-//            new RegistrationController(FNTextfield, LNTextfield, EText, PF1, Radiobtngrp, Srbtn, Trbtn);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(RegistrationGUI.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            new RegistrationController(FNTextfield, LNTextfield, EText, PF1, Radiobtngrp, Srbtn, Trbtn);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistrationGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_RbtnActionPerformed
 

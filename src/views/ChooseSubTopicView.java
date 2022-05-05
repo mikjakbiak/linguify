@@ -863,7 +863,7 @@ public class ChooseSubTopicView extends javax.swing.JFrame {
     }
 
     private void displayNextJFrame(int subTopicId) {
-        ChoosePersonGUI next = new ChoosePersonGUI(subTopicId);
+        ChoosePersonGUI next = new ChoosePersonGUI(this, subTopicId, userModel);
         this.setVisible(false);
         next.setVisible(true);
     }
