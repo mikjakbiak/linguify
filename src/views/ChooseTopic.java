@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package views;
 
 import user.UserModel;
 
 /**
  *
- * @author mikjakbiak
+ * @author mikjakbiak w1782957
  */
 public class ChooseTopic extends javax.swing.JFrame {
     javax.swing.JFrame previousJFrame;
@@ -880,229 +876,191 @@ public class ChooseTopic extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void jButtonL2N11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N11ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(11);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N11ActionPerformed
 
     private void jButtonL3N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N1ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(1);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N1ActionPerformed
 
     private void jButtonL3N9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N9ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(9);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N9ActionPerformed
 
     private void jButtonL1N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N1ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(1);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N1ActionPerformed
 
     private void jButtonL1N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N2ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(2);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N2ActionPerformed
 
     private void jButtonL1N3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N3ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(3);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N3ActionPerformed
 
     private void jButtonL1N4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N4ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(4);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N4ActionPerformed
 
     private void jButtonL1N5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N5ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(5);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N5ActionPerformed
 
     private void jButtonL1N7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N7ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(7);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N7ActionPerformed
 
     private void jButtonL1N6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N6ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(6);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N6ActionPerformed
 
     private void jButtonL1N12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N12ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(12);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N12ActionPerformed
 
     private void jButtonL1N9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N9ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(9);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N9ActionPerformed
 
     private void jButtonL1N10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N10ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(10);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N10ActionPerformed
 
     private void jButtonL1N15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL1N15ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(15);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL1N15ActionPerformed
 
     private void jButtonL2N6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N6ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(6);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N6ActionPerformed
 
     private void jButtonL2N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N1ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(1);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N1ActionPerformed
 
     private void jButtonL2N3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N3ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(3);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N3ActionPerformed
 
     private void jButtonL2N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N2ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(2);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N2ActionPerformed
 
     private void jButtonL2N8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N8ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(8);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N8ActionPerformed
 
     private void jButtonL2N9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N9ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(9);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N9ActionPerformed
 
     private void jButtonL2N7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N7ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(7);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N7ActionPerformed
 
     private void jButtonL2N12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N12ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(12);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N12ActionPerformed
 
     private void jButtonL2N4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N4ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(4);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N4ActionPerformed
 
     private void jButtonL2N15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N15ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(15);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N15ActionPerformed
 
     private void jButtonL2N13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N13ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(13);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N13ActionPerformed
 
     private void jButtonL2N14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL2N14ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(14);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL2N14ActionPerformed
 
     private void jButtonL3N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N2ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(2);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N2ActionPerformed
 
     private void jButtonL3N10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N10ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(10);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N10ActionPerformed
 
     private void jButtonL3N11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N11ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(11);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N11ActionPerformed
 
     private void jButtonL3N5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N5ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(5);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N5ActionPerformed
 
     private void jButtonL3N14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N14ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(14);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N14ActionPerformed
 
     private void jButtonL3N7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N7ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(7);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N7ActionPerformed
 
     private void jButtonL3N18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL3N18ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(18);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL3N18ActionPerformed
 
     private void jButtonL4N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL4N2ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(2);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL4N2ActionPerformed
 
     private void jButtonL4N5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL4N5ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(5);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL4N5ActionPerformed
 
     private void jButtonL4N11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL4N11ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(11);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL4N11ActionPerformed
 
     private void jButtonL4N7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonL4N7ActionPerformed
-        // TODO add your handling code here:
         userModel.setContextId(7);
         displayNextJFrame();
     }//GEN-LAST:event_jButtonL4N7ActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
         if (previousJFrame != null) {
             this.setVisible(false);
             previousJFrame.setVisible(true);
@@ -1113,29 +1071,6 @@ public class ChooseTopic extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChooseTopic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChooseTopic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChooseTopic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChooseTopic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

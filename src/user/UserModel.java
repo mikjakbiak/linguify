@@ -2,7 +2,8 @@ package user;
 
 /**
  *
- * @author mikjakbiak
+ * @author mikjakbiak w1782957
+ * @co-author mathuwish w1779171
  */
 public class UserModel {
 
