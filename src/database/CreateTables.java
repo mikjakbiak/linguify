@@ -11,7 +11,8 @@ import java.sql.*;
  */
 public class CreateTables {
 
-    public static void main(String[] args) {
+    public CreateTables()
+    {
         createLangTbl();
         createLevelTbl();
         levelContextTbl();
@@ -22,7 +23,7 @@ public class CreateTables {
         translationTbl();
         createUserTbl();
         userLogHistoryTbl();
-        userLearnHistoryTbl();
+        userLearnHistoryTbl();        
     }
 
     private static void createTable(String table) {

@@ -91,6 +91,11 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         backBtn.setBackground(new java.awt.Color(51, 51, 51));
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backNew.png"))); // NOI18N
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,14 +180,7 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         hub.setVisible(true);
     }//GEN-LAST:event_homeBtnActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println(previousJFrame);
-        if (previousJFrame != null) {
-            this.setVisible(false);
-            previousJFrame.setVisible(true);
-        }
-        
-    } 
+
     
     private void SpanishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpanishBtnActionPerformed
         userModel.setLanguage("Spanish");
@@ -193,6 +191,14 @@ public class ChooseLanguageView extends javax.swing.JFrame {
         userModel.setLanguage("German");
         displayNextJFrame();
     }//GEN-LAST:event_germanBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+    
+        if (previousJFrame != null) {
+            this.setVisible(false);
+            previousJFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
