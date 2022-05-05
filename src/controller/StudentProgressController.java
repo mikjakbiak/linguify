@@ -1,6 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * This class was made by Mathusan Nagalingam w1779171
  */
 package controller;
 
@@ -39,7 +38,7 @@ public class StudentProgressController
             
             int userProgress = rs.getInt("levelContextId");
             
-            System.out.println("IF WORKS: " + userProgress);
+           
                     
 
             dataset.setValue(userProgress, "Level", "A1");

@@ -1,3 +1,6 @@
+/**
+ * This class was made by Mathusan Nagalingam w1779171
+ */
 package controller;
 
 import database.ConnectDB;
