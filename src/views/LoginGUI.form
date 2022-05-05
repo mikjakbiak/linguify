@@ -94,7 +94,7 @@
                   <Component id="pwResBtn" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="loginBtn" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Component id="backBtn" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
           </Group>
